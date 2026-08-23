@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Survival Kit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🎓
+            <span>
+                Student<br>
+                Survival Kit
+            </span>
+        </div>
+
+        <button class="nav-btn active" onclick="showPage('home', this)">
+            🏠 Home
+        </button>
+
+        <button class="nav-btn" onclick="showPage('study', this)">
+            📚 Study Hub
+        </button>
+
+        <button class="nav-btn" onclick="showPage('books', this)">
+            📖 Book Library
+        </button>
+
+        <button class="nav-btn" onclick="showPage('budget', this)">
+            💰 Budget
+        </button>
+
+        <button class="nav-btn" onclick="showPage('attendance', this)">
+            📊 Attendance
+        </button>
+
+        <button class="nav-btn" onclick="showPage('cgpa', this)">
+            🎯 CGPA
+        </button>
+
+        <button class="nav-btn" onclick="showPage('todo', this)">
+            ✅ To-Do
+        </button>
+
+        <button class="nav-btn" onclick="showPage('events', this)">
+            📅 Events
+        </button>
+
+        <button class="nav-btn" onclick="showPage('transport', this)">
+            🚌 Transport
+        </button>
+
+        <button class="nav-btn" onclick="showPage('campus', this)">
+            📍 Campus Map
+        </button>
+
+        <button class="nav-btn" onclick="showPage('lostfound', this)">
+            📢 Lost & Found
+        </button>
+
+        <button class="nav-btn" onclick="showPage('emergency', this)">
+            🚑 Emergency
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home" class="page active">
+
+            <div class="header">
+
+                <div>
+
+                    <p class="purple-text">
+                        WELCOME BACK 👋
+                    </p>
+
+                    <h1>
+                        Everything a student
+                        <span>needs in one place.</span>
+                    </h1>
+
+                    <p class="description">
+                        Study, manage your money, track attendance,
+                        find books, events and campus information.
+                    </p>
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="profile-circle">
+                        S
+                    </div>
+
+                    <div>
+                        <b>Student</b>
+                        <small>College Student</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO -->
+
+            <div class="hero">
+
+                <div>
+
+                    <p class="purple-text">
+                        STUDENT PRODUCTIVITY PLATFORM
+                    </p>
+
+                    <h2>
+                        Make college life
+                        <span>easier.</span>
+                    </h2>
+
+                    <p>
+                        Academic tools and useful campus
+                        services in one place.
+                    </p>
+
+                    <button onclick="showPageById('study')">
+                        Start Studying →
+                    </button>
+
+                </div>
+
+                <div class="hero-icon">
+                    🎓
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <h2 class="title">
+                Quick Actions
+            </h2>
+
+            <div class="quick-grid">
+
+                <div
+                    class="quick-card"
+                    onclick="showPageById('study')"
+                >
+                    <div class="icon purple">
+                        📚
+                    </div>
+
+                    <h3>Study</h3>
+
+                    <p>
+                        Study tools
+                    </p>
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPageById('books')"
+                >
+                    <div class="icon blue">
+                        📖
+                    </div>
+
+                    <h3>Books</h3>
+
+                    <p>
+                        Find books
+                    </p>
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPageById('budget')"
+                >
+                    <div class="icon green">
+                        💰
+                    </div>
+
+                    <h3>Budget</h3>
+
+                    <p>
+                        Track money
+                    </p>
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPageById('attendance')"
+                >
+                    <div class="icon orange">
+                        📊
+                    </div>
+
+                    <h3>Attendance</h3>
+
+                    <p>
+                        Check classes
+                    </p>
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="showPageById('events')"
+                >
+                    <div class="icon pink">
+                        📅
+                    </div>
+
+                    <h3>Events</h3>
+
+                    <p>
+                        Campus events
+                    </p>
+                </div>
+
+
+                <div
+                    class="quick-card"
+                    onclick="openChat()"
+                >
+                    <div class="icon cyan">
+                        🤖
+                    </div>
+
+                    <h3>Assistant</h3>
+
+                    <p>
+                        Ask questions
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+
+            <div class="dashboard">
+
+                <div class="card">
+
+                    <h3>
+                        📊 Student Progress
+                    </h3>
+
+                    <p>
+                        Semester Progress
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 70%;"></div>
+                    </div>
+
+                    <p>
+                        Attendance
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 82%;"></div>
+                    </div>
+
+                    <p>
+                        Assignments
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 75%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        💡 Student Tip
+                    </h3>
+
+                    <p class="tip">
+                        Keep your attendance above 75%,
+                        finish assignments before deadlines
+                        and revise regularly.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= STUDY HUB ================= -->
+
+        <section id="study" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    LEARN SMARTER
+                </p>
+
+                <h1>
+                    📚 Study Hub
+                </h1>
+
+                <p>
+                    Useful resources and study tools.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="big-icon">
+                        📓
+                    </div>
+
+                    <h3>
+                        Semester Notes
+                    </h3>
+
+                    <p>
+                        Organize your study notes
+                        semester-wise.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Semester Notes section opened.')"
+                    >
+                        Open Notes
+                    </button>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="big-icon">
+                        📄
+                    </div>
+
+                    <h3>
+                        Previous Year Papers
+                    </h3>
+
+                    <p>
+                        Practice previous year
+                        questions.
+                    </p>
+
+                    <button
+                        onclick="showMessage('PYQ section opened.')"
+                    >
+                        View PYQs
+                    </button>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="big-icon">
+                        🎥
+                    </div>
+
+                    <h3>
+                        Study Playlists
+                    </h3>
+
+                    <p>
+                        Useful educational
+                        video resources.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Study playlist section opened.')"
+                    >
+                        Explore
+                    </button>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="big-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Free Courses
+                    </h3>
+
+                    <p>
+                        Find useful learning
+                        courses.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Free courses section opened.')"
+                    >
+                        View Courses
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- POMODORO -->
+
+            <div class="card pomodoro">
+
+                <h2>
+                    ⏱ Pomodoro Timer
+                </h2>
+
+                <div id="timer">
+                    25:00
+                </div>
+
+                <button onclick="startTimer()">
+                    Start
+                </button>
+
+                <button onclick="pauseTimer()">
+                    Pause
+                </button>
+
+                <button onclick="resetTimer()">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BOOK LIBRARY ================= -->
+
+        <section id="books" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    STUDENT BOOK LIBRARY
+                </p>
+
+                <h1>
+                    📖 Book Library
+                </h1>
+
+                <p>
+                    Search useful books for your studies.
+                </p>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="bookSearch"
+                    placeholder="Search book..."
+                    onkeyup="searchBooks()"
+                >
+
+            </div>
+
+
+            <div class="book-grid" id="bookList">
+
+                <div class="book-card">
+
+                    <div class="book-icon">
+                        📘
+                    </div>
+
+                    <h3>
+                        Data Structures
+                    </h3>
+
+                    <p>
+                        Computer Science
+                    </p>
+
+                    <button
+                        onclick="borrowBook('Data Structures')"
+                    >
+                        Borrow
+                    </button>
+
+                </div>
+
+
+                <div class="book-card">
+
+                    <div class="book-icon">
+                        📗
+                    </div>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        Programming
+                    </p>
+
+                    <button
+                        onclick="borrowBook('Python Programming')"
+                    >
+                        Borrow
+                    </button>
+
+                </div>
+
+
+                <div class="book-card">
+
+                    <div class="book-icon">
+                        📕
+                    </div>
+
+                    <h3>
+                        Artificial Intelligence
+                    </h3>
+
+                    <p>
+                        AI & ML
+                    </p>
+
+                    <button
+                        onclick="borrowBook('Artificial Intelligence')"
+                    >
+                        Borrow
+                    </button>
+
+                </div>
+
+
+                <div class="book-card">
+
+                    <div class="book-icon">
+                        📙
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Web Technologies
+                    </p>
+
+                    <button
+                        onclick="borrowBook('Web Development')"
+                    >
+                        Borrow
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BUDGET ================= -->
+
+        <section id="budget" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    MANAGE YOUR MONEY
+                </p>
+
+                <h1>
+                    💰 Budget Calculator
+                </h1>
+
+                <p>
+                    Calculate your monthly savings.
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <label>
+                    Monthly Income
+                </label>
+
+                <input
+                    type="number"
+                    id="income"
+                    placeholder="25000"
+                >
+
+
+                <label>
+                    Hostel / Rent
+                </label>
+
+                <input
+                    type="number"
+                    id="rent"
+                    placeholder="8000"
+                >
+
+
+                <label>
+                    Food
+                </label>
+
+                <input
+                    type="number"
+                    id="food"
+                    placeholder="5000"
+                >
+
+
+                <label>
+                    Travel
+                </label>
+
+                <input
+                    type="number"
+                    id="travel"
+                    placeholder="2000"
+                >
+
+
+                <label>
+                    Miscellaneous
+                </label>
+
+                <input
+                    type="number"
+                    id="misc"
+                    placeholder="1000"
+                >
+
+
+                <button onclick="calculateBudget()">
+                    Calculate Savings
+                </button>
+
+
+                <div class="result">
+
+                    <p>
+                        Remaining Savings
+                    </p>
+
+                    <h2 id="savingResult">
+                        ₹0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ATTENDANCE ================= -->
+
+        <section id="attendance" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    ATTENDANCE TRACKER
+                </p>
+
+                <h1>
+                    📊 Attendance Calculator
+                </h1>
+
+                <p>
+                    Check your current attendance.
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <label>
+                    Total Classes
+                </label>
+
+                <input
+                    type="number"
+                    id="totalClasses"
+                    placeholder="100"
+                >
+
+
+                <label>
+                    Classes Attended
+                </label>
+
+                <input
+                    type="number"
+                    id="attendedClasses"
+                    placeholder="80"
+                >
+
+
+                <button onclick="calculateAttendance()">
+                    Calculate
+                </button>
+
+
+                <div class="result">
+
+                    <p>
+                        Current Attendance
+                    </p>
+
+                    <h2 id="attendanceResult">
+                        0%
+                    </h2>
+
+                    <p id="attendanceMessage">
+                        Enter your details.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CGPA ================= -->
+
+        <section id="cgpa" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    ACADEMIC PERFORMANCE
+                </p>
+
+                <h1>
+                    🎯 CGPA Calculator
+                </h1>
+
+                <p>
+                    Enter your grade points.
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <label>Subject 1</label>
+
+                <input
+                    type="number"
+                    id="grade1"
+                    placeholder="9"
+                >
+
+
+                <label>Subject 2</label>
+
+                <input
+                    type="number"
+                    id="grade2"
+                    placeholder="8"
+                >
+
+
+                <label>Subject 3</label>
+
+                <input
+                    type="number"
+                    id="grade3"
+                    placeholder="9"
+                >
+
+
+                <label>Subject 4</label>
+
+                <input
+                    type="number"
+                    id="grade4"
+                    placeholder="8"
+                >
+
+
+                <label>Subject 5</label>
+
+                <input
+                    type="number"
+                    id="grade5"
+                    placeholder="9"
+                >
+
+
+                <button onclick="calculateCGPA()">
+                    Calculate CGPA
+                </button>
+
+
+                <div class="result">
+
+                    <p>
+                        Your CGPA
+                    </p>
+
+                    <h2 id="cgpaResult">
+                        0.00
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TODO ================= -->
+
+        <section id="todo" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    STAY ORGANIZED
+                </p>
+
+                <h1>
+                    ✅ To-Do List
+                </h1>
+
+                <p>
+                    Manage assignments and deadlines.
+                </p>
+
+            </div>
+
+
+            <div class="todo-box">
+
+                <div class="todo-input">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Enter a task"
+                    >
+
+                    <button onclick="addTask()">
+                        Add
+                    </button>
+
+                </div>
+
+
+                <ul id="taskList"></ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= EVENTS ================= -->
+
+        <section id="events" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    CAMPUS LIFE
+                </p>
+
+                <h1>
+                    📅 Events & Clubs
+                </h1>
+
+                <p>
+                    Discover upcoming college events.
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+                <div class="event">
+
+                    <div class="date">
+                        <b>25</b>
+                        AUG
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>
+                            Hackathon 2026
+                        </h3>
+
+                        <p>
+                            💻 Technology Club
+                        </p>
+
+                        <p>
+                            📍 Main Auditorium
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="registerEvent('Hackathon 2026')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+
+                <div class="event">
+
+                    <div class="date">
+                        <b>28</b>
+                        AUG
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>
+                            AI Workshop
+                        </h3>
+
+                        <p>
+                            🤖 AI Club
+                        </p>
+
+                        <p>
+                            📍 Computer Lab
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="registerEvent('AI Workshop')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+
+                <div class="event">
+
+                    <div class="date">
+                        <b>02</b>
+                        SEP
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>
+                            Student Fest
+                        </h3>
+
+                        <p>
+                            🎉 Student Council
+                        </p>
+
+                        <p>
+                            📍 College Ground
+                        </p>
+
+                    </div>
+
+                    <button
+                        onclick="registerEvent('Student Fest')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TRANSPORT ================= -->
+
+        <section id="transport" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    CAMPUS TRANSPORT
+                </p>
+
+                <h1>
+                    🚌 Transport
+                </h1>
+
+                <p>
+                    Useful bus and transport information.
+                </p>
+
+            </div>
+
+
+            <div class="transport-grid">
+
+                <div class="transport-card">
+
+                    <div class="transport-icon">
+                        🚌
+                    </div>
+
+                    <h3>
+                        College Bus
+                    </h3>
+
+                    <p>
+                        Morning: 7:40 AM
+                    </p>
+
+                    <p>
+                        Evening: 4:40 PM
+                    </p>
+
+                    <button
+                        onclick="showMessage('College bus timing information displayed.')"
+                    >
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="transport-card">
+
+                    <div class="transport-icon">
+                        🚐
+                    </div>
+
+                    <h3>
+                        Campus Shuttle
+                    </h3>
+
+                    <p>
+                        Available during college hours.
+                    </p>
+
+                    <p>
+                        Frequency: Every 30 minutes
+                    </p>
+
+                    <button
+                        onclick="showMessage('Campus shuttle information displayed.')"
+                    >
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="transport-card">
+
+                    <div class="transport-icon">
+                        🚆
+                    </div>
+
+                    <h3>
+                        Railway Station
+                    </h3>
+
+                    <p>
+                        Find the nearest railway station.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Nearest railway station information can be added here.')"
+                    >
+                        View Details
+                    </button>
+
+                </div>
+
+
+                <div class="transport-card">
+
+                    <div class="transport-icon">
+                        🚕
+                    </div>
+
+                    <h3>
+                        Cab / Auto
+                    </h3>
+
+                    <p>
+                        Useful local transport option.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Cab and auto information opened.')"
+                    >
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CAMPUS MAP ================= -->
+
+        <section id="campus" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    CAMPUS NAVIGATION
+                </p>
+
+                <h1>
+                    📍 Campus Map
+                </h1>
+
+                <p>
+                    Click a location for information.
+                </p>
+
+            </div>
+
+
+            <div class="campus">
+
+                <div class="map">
+
+                    <button
+                        class="map-place library"
+                        onclick="locationInfo('Library')"
+                    >
+                        📚 Library
+                    </button>
+
+
+                    <button
+                        class="map-place academic"
+                        onclick="locationInfo('Academic Block')"
+                    >
+                        🏫 Academic Block
+                    </button>
+
+
+                    <button
+                        class="map-place cafe"
+                        onclick="locationInfo('Cafeteria')"
+                    >
+                        🍔 Cafeteria
+                    </button>
+
+
+                    <button
+                        class="map-place hostel"
+                        onclick="locationInfo('Hostel')"
+                    >
+                        🏠 Hostel
+                    </button>
+
+
+                    <button
+                        class="map-place parking"
+                        onclick="locationInfo('Parking')"
+                    >
+                        🅿️ Parking
+                    </button>
+
+                </div>
+
+
+                <div class="location-card">
+
+                    <h2>
+                        Campus Location
+                    </h2>
+
+                    <p id="locationText">
+                        Select a location on the map.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LOST & FOUND ================= -->
+
+        <section id="lostfound" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    CAMPUS COMMUNITY
+                </p>
+
+                <h1>
+                    📢 Lost & Found
+                </h1>
+
+                <p>
+                    Help students find lost items.
+                </p>
+
+            </div>
+
+
+            <div class="lost-grid">
+
+                <div class="lost-card">
+
+                    <div class="big-icon">
+                        🪪
+                    </div>
+
+                    <h3>
+                        Lost Student ID
+                    </h3>
+
+                    <p>
+                        Lost near the library.
+                    </p>
+
+                    <p>
+                        Posted by: Student A
+                    </p>
+
+                    <button
+                        onclick="reportFound('Student ID')"
+                    >
+                        I Found This
+                    </button>
+
+                </div>
+
+
+                <div class="lost-card">
+
+                    <div class="big-icon">
+                        🔑
+                    </div>
+
+                    <h3>
+                        Lost Keys
+                    </h3>
+
+                    <p>
+                        Lost near cafeteria.
+                    </p>
+
+                    <p>
+                        Posted by: Student B
+                    </p>
+
+                    <button
+                        onclick="reportFound('Keys')"
+                    >
+                        I Found This
+                    </button>
+
+                </div>
+
+
+                <div class="lost-card">
+
+                    <div class="big-icon">
+                        🔌
+                    </div>
+
+                    <h3>
+                        Found Charger
+                    </h3>
+
+                    <p>
+                        Found in Computer Lab.
+                    </p>
+
+                    <p>
+                        Posted by: Student C
+                    </p>
+
+                    <button
+                        onclick="contactOwner('Charger')"
+                    >
+                        Contact Owner
+                    </button>
+
+                </div>
+
+
+                <div class="lost-card">
+
+                    <div class="big-icon">
+                        👛
+                    </div>
+
+                    <h3>
+                        Found Wallet
+                    </h3>
+
+                    <p>
+                        Found near the main gate.
+                    </p>
+
+                    <p>
+                        Posted by: Student D
+                    </p>
+
+                    <button
+                        onclick="contactOwner('Wallet')"
+                    >
+                        Contact Owner
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= EMERGENCY ================= -->
+
+        <section id="emergency" class="page">
+
+            <div class="page-header">
+
+                <p class="purple-text">
+                    STAY SAFE
+                </p>
+
+                <h1>
+                    🚑 Emergency Section
+                </h1>
+
+                <p>
+                    Important emergency contacts.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-grid">
+
+                <div class="emergency-card">
+
+                    <div class="big-icon">
+                        🚑
+                    </div>
+
+                    <h3>
+                        Ambulance
+                    </h3>
+
+                    <p>
+                        Emergency medical service.
+                    </p>
+
+                    <button
+                        onclick="callNumber('108')"
+                    >
+                        Call 108
+                    </button>
+
+                </div>
+
+
+                <div class="emergency-card">
+
+                    <div class="big-icon">
+                        👮
+                    </div>
+
+                    <h3>
+                        Emergency
+                    </h3>
+
+                    <p>
+                        National emergency number.
+                    </p>
+
+                    <button
+                        onclick="callNumber('112')"
+                    >
+                        Call 112
+                    </button>
+
+                </div>
+
+
+                <div class="emergency-card">
+
+                    <div class="big-icon">
+                        🏥
+                    </div>
+
+                    <h3>
+                        Medical Room
+                    </h3>
+
+                    <p>
+                        College medical assistance.
+                    </p>
+
+                    <button
+                        onclick="showMessage('Please contact your college medical room.')"
+                    >
+                        Contact
+                    </button>
+
+                </div>
+
+
+                <div class="emergency-card">
+
+                    <div class="big-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Security
+                    </h3>
+
+                    <p>
+                        Campus security office.
+                    </p>
+
+                    <button
+                        onclick="callNumber('112')"
+                    >
+                        Contact
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= CHATBOT BUTTON ================= -->
+
+    <button
+        class="chat-button"
+        onclick="openChat()"
+    >
+        🤖
+    </button>
+
+
+    <!-- ================= CHATBOT ================= -->
+
+    <div
+        id="chatbot"
+        class="chatbot"
+    >
+
+        <div class="chat-header">
+
+            <div>
+
+                <b>
+                    Student Assistant
+                </b>
+
+                <small>
+                    Online
+                </small>
+
+            </div>
+
+            <button onclick="closeChat()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="chatMessages"
+            class="chat-messages"
+        >
+
+            <div class="bot-message">
+                Hi 👋 Ask me about attendance,
+                CGPA, library, exams or campus.
+            </div>
+
+        </div>
+
+
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask something..."
+                onkeydown="chatEnter(event)"
+            >
+
+            <button onclick="sendMessage()">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
