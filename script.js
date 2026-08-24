@@ -696,3 +696,669 @@ function sendMessage() {
 
     }, 400);
 }
+
+/* =====================================================
+   LOGIN & SIGN UP SYSTEM
+===================================================== */
+
+
+/* ================= SHOW SIGN UP ================= */
+
+function showSignup() {
+
+    const loginBox = document.getElementById("loginBox");
+    const signupBox = document.getElementById("signupBox");
+
+    if (loginBox && signupBox) {
+
+        loginBox.classList.add("hidden");
+        signupBox.classList.remove("hidden");
+
+    }
+}
+
+
+/* ================= SHOW LOGIN ================= */
+
+function showLogin() {
+
+    const loginBox = document.getElementById("loginBox");
+    const signupBox = document.getElementById("signupBox");
+
+    if (loginBox && signupBox) {
+
+        signupBox.classList.add("hidden");
+        loginBox.classList.remove("hidden");
+
+    }
+}
+
+
+/* ================= SIGN UP ================= */
+
+function signupUser(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("signupName").value.trim();
+
+    const email =
+        document.getElementById("signupEmail").value.trim();
+
+    const password =
+        document.getElementById("signupPassword").value;
+
+    const confirmPassword =
+        document.getElementById("signupConfirmPassword").value;
+
+    const message =
+        document.getElementById("signupMessage");
+
+
+    /* CHECK PASSWORD */
+
+    if (password !== confirmPassword) {
+
+        message.textContent =
+            "❌ Passwords do not match.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    /* CHECK PASSWORD LENGTH */
+
+    if (password.length < 6) {
+
+        message.textContent =
+            "❌ Password must be at least 6 characters.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    /* CHECK EXISTING ACCOUNT */
+
+    const existingUser =
+        JSON.parse(
+            localStorage.getItem("studentUser")
+        );
+
+
+    if (
+        existingUser &&
+        existingUser.email.toLowerCase() ===
+        email.toLowerCase()
+    ) {
+
+        message.textContent =
+            "❌ Account already exists. Please login.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    /* CREATE USER */
+
+    const user = {
+
+        name: name,
+
+        email: email,
+
+        password: password
+
+    };
+
+
+    /* SAVE USER */
+
+    localStorage.setItem(
+        "studentUser",
+        JSON.stringify(user)
+    );
+
+
+    /* SUCCESS MESSAGE */
+
+    message.textContent =
+        "✅ Account created successfully!";
+
+    message.style.color = "#4ade80";
+
+
+    /* CLEAR SIGN UP FORM */
+
+    document.querySelector("#signupBox form").reset();
+
+
+    /* MOVE TO LOGIN */
+
+    setTimeout(function () {
+
+        showLogin();
+
+        document.getElementById("loginEmail").value =
+            email;
+
+        document.getElementById("loginMessage").textContent =
+            "Account created! Please login.";
+
+        document.getElementById("loginMessage").style.color =
+            "#4ade80";
+
+    }, 1000);
+}
+
+
+/* ================= LOGIN ================= */
+
+function loginUser(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("loginEmail")
+            .value.trim();
+
+    const password =
+        document.getElementById("loginPassword")
+            .value;
+
+    const message =
+        document.getElementById("loginMessage");
+
+
+    /* GET SAVED USER */
+
+    const savedUser =
+        JSON.parse(
+            localStorage.getItem("studentUser")
+        );
+
+
+    /* NO ACCOUNT */
+
+    if (!savedUser) {
+
+        message.textContent =
+            "❌ No account found. Please Sign Up first.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    /* CHECK EMAIL & PASSWORD */
+
+    if (
+        email.toLowerCase() ===
+            savedUser.email.toLowerCase() &&
+        password === savedUser.password
+    ) {
+
+
+        /* SAVE CURRENT LOGIN FOR THIS SESSION */
+
+        sessionStorage.setItem(
+            "studentLoggedIn",
+            "true"
+        );
+
+
+        /* HIDE AUTH SCREEN */
+
+        const authScreen =
+            document.getElementById("authScreen");
+
+        if (authScreen) {
+
+            authScreen.style.display = "none";
+
+        }
+
+
+        /* UPDATE PROFILE */
+
+        updateStudentProfile(savedUser);
+
+
+        /* CLEAR LOGIN MESSAGE */
+
+        message.textContent = "";
+
+    } else {
+
+        message.textContent =
+            "❌ Invalid email or password.";
+
+        message.style.color = "#f87171";
+
+    }
+}
+
+
+/* ================= UPDATE PROFILE ================= */
+
+function updateStudentProfile(user) {
+
+    const profileName =
+        document.querySelector(".profile b");
+
+    const profileCircle =
+        document.querySelector(".profile-circle");
+
+
+    if (profileName) {
+
+        profileName.textContent =
+            user.name;
+
+    }
+
+
+    if (profileCircle) {
+
+        profileCircle.textContent =
+            user.name
+                .charAt(0)
+                .toUpperCase();
+
+    }
+}
+
+
+/* ================= CHECK LOGIN ================= */
+
+/*
+   IMPORTANT:
+   sessionStorage is used here.
+
+   This means:
+   - Login works normally
+   - Refreshing the page keeps the login
+   - Closing the browser/tab ends the session
+   - Opening the website again asks for Login
+*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const authScreen =
+            document.getElementById("authScreen");
+
+        const savedUser =
+            JSON.parse(
+                localStorage.getItem("studentUser")
+            );
+
+        const loggedIn =
+            sessionStorage.getItem(
+                "studentLoggedIn"
+            );
+
+
+        if (
+            loggedIn === "true" &&
+            savedUser
+        ) {
+
+            /* USER ALREADY LOGGED IN */
+
+            if (authScreen) {
+
+                authScreen.style.display = "none";
+
+            }
+
+            updateStudentProfile(savedUser);
+
+        } else {
+
+            /* SHOW LOGIN */
+
+            if (authScreen) {
+
+                authScreen.style.display = "flex";
+
+            }
+
+            showLogin();
+
+        }
+
+    }
+);
+
+
+/* ================= LOGOUT ================= */
+
+function logoutUser() {
+
+    /* REMOVE LOGIN SESSION */
+
+    sessionStorage.removeItem(
+        "studentLoggedIn"
+    );
+
+
+    /* SHOW LOGIN SCREEN */
+
+    const authScreen =
+        document.getElementById("authScreen");
+
+    if (authScreen) {
+
+        authScreen.style.display = "flex";
+
+    }
+
+
+    /* SHOW LOGIN BOX */
+
+    showLogin();
+
+
+    /* CLEAR LOGIN FORM */
+
+    const email =
+        document.getElementById("loginEmail");
+
+    const password =
+        document.getElementById("loginPassword");
+
+    const message =
+        document.getElementById("loginMessage");
+
+
+    if (email) {
+
+        email.value = "";
+
+    }
+
+    if (password) {
+
+        password.value = "";
+
+    }
+
+    if (message) {
+
+        message.textContent = "";
+
+    }
+}
+
+/* =====================================================
+   REVIEWS & FEEDBACK SYSTEM
+===================================================== */
+
+let selectedRating = 0;
+
+
+/* ================= SET RATING ================= */
+
+function setRating(rating) {
+
+    selectedRating = rating;
+
+    const stars =
+        document.querySelectorAll(
+            ".star-rating button"
+        );
+
+    stars.forEach(function(star, index) {
+
+        if (index < rating) {
+
+            star.classList.add("active");
+
+        } else {
+
+            star.classList.remove("active");
+
+        }
+
+    });
+}
+
+
+/* ================= SUBMIT REVIEW ================= */
+
+function submitReview() {
+
+    const name =
+        document.getElementById("reviewName")
+            .value.trim();
+
+    const text =
+        document.getElementById("reviewText")
+            .value.trim();
+
+    const message =
+        document.getElementById("reviewMessage");
+
+
+    /* VALIDATION */
+
+    if (selectedRating === 0) {
+
+        message.textContent =
+            "⭐ Please select a rating.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    if (name === "") {
+
+        message.textContent =
+            "Please enter your name.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    if (text === "") {
+
+        message.textContent =
+            "Please write a review.";
+
+        message.style.color = "#f87171";
+
+        return;
+    }
+
+
+    /* GET OLD REVIEWS */
+
+    let reviews =
+        JSON.parse(
+            localStorage.getItem("studentReviews")
+        ) || [];
+
+
+    /* CREATE REVIEW */
+
+    const newReview = {
+
+        name: name,
+
+        rating: selectedRating,
+
+        text: text
+
+    };
+
+
+    reviews.push(newReview);
+
+
+    /* SAVE */
+
+    localStorage.setItem(
+        "studentReviews",
+        JSON.stringify(reviews)
+    );
+
+
+    /* SUCCESS */
+
+    message.textContent =
+        "✅ Thank you for your feedback!";
+
+    message.style.color = "#4ade80";
+
+
+    /* CLEAR FORM */
+
+    document.getElementById("reviewName")
+        .value = "";
+
+    document.getElementById("reviewText")
+        .value = "";
+
+
+    setRating(0);
+
+
+    /* DISPLAY REVIEWS */
+
+    displayReviews();
+
+}
+
+
+/* ================= DISPLAY REVIEWS ================= */
+
+function displayReviews() {
+
+    const reviews =
+        JSON.parse(
+            localStorage.getItem("studentReviews")
+        ) || [];
+
+
+    const list =
+        document.getElementById("reviewsList");
+
+    const average =
+        document.getElementById("averageRating");
+
+
+    if (reviews.length === 0) {
+
+        list.innerHTML = `
+            <div class="empty-reviews">
+                No reviews yet.
+                Be the first to review! 💜
+            </div>
+        `;
+
+        average.textContent = "⭐ 0.0";
+
+        return;
+    }
+
+
+    /* CALCULATE AVERAGE */
+
+    let total = 0;
+
+    reviews.forEach(function(review) {
+
+        total += review.rating;
+
+    });
+
+
+    const avg =
+        (total / reviews.length).toFixed(1);
+
+
+    average.textContent =
+        `⭐ ${avg}`;
+
+
+    /* DISPLAY */
+
+    list.innerHTML = "";
+
+
+    reviews.forEach(function(review) {
+
+        let stars = "";
+
+        for (
+            let i = 1;
+            i <= 5;
+            i++
+        ) {
+
+            stars +=
+                i <= review.rating
+                    ? "★"
+                    : "☆";
+
+        }
+
+
+        const reviewElement =
+            document.createElement("div");
+
+        reviewElement.className =
+            "review-item";
+
+
+        reviewElement.innerHTML = `
+
+            <div class="review-top">
+
+                <span class="reviewer-name">
+                    ${review.name}
+                </span>
+
+                <span class="review-stars">
+                    ${stars}
+                </span>
+
+            </div>
+
+            <p>
+                ${review.text}
+            </p>
+
+        `;
+
+
+        list.appendChild(reviewElement);
+
+    });
+
+}
+
+
+/* ================= LOAD REVIEWS ================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        displayReviews();
+
+    }
+);
