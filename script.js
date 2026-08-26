@@ -1,96 +1,441 @@
-/* ==========================================
+/* =====================================================
    PAGE NAVIGATION
-========================================== */
+===================================================== */
 
 function showPage(pageId, button) {
 
-    // Hide all pages
-    let pages = document.querySelectorAll(".page");
+    let pages =
+        document.querySelectorAll(".page");
+
 
     pages.forEach(function(page) {
+
         page.classList.remove("active");
+
     });
 
 
-    // Show selected page
-    document.getElementById(pageId).classList.add("active");
+    document.getElementById(pageId)
+        .classList.add("active");
 
 
-    // Remove active from all sidebar buttons
-    let buttons = document.querySelectorAll(".nav-btn");
+    let buttons =
+        document.querySelectorAll(".nav-btn");
+
 
     buttons.forEach(function(btn) {
+
         btn.classList.remove("active");
+
     });
 
 
-    // Make clicked button active
-    button.classList.add("active");
+    if (button) {
+
+        button.classList.add("active");
+
+    }
 }
 
 
 function showPageById(pageId) {
 
-    let pages = document.querySelectorAll(".page");
+    let pages =
+        document.querySelectorAll(".page");
+
 
     pages.forEach(function(page) {
+
         page.classList.remove("active");
+
     });
 
-    document.getElementById(pageId).classList.add("active");
+
+    document.getElementById(pageId)
+        .classList.add("active");
 }
 
 
-/* ==========================================
-   BUDGET CALCULATOR
-========================================== */
+/* =====================================================
+   POPUP
+===================================================== */
+
+function openFeatureModal(title, content) {
+
+    let modal =
+        document.getElementById("featureModal");
+
+    let contentBox =
+        document.getElementById(
+            "featureModalContent"
+        );
+
+
+    contentBox.innerHTML = `
+
+        <h2>
+            ${title}
+        </h2>
+
+        <div class="modal-content">
+            ${content}
+        </div>
+
+    `;
+
+
+    modal.style.display = "flex";
+}
+
+
+function closeFeatureModal() {
+
+    document.getElementById(
+        "featureModal"
+    ).style.display = "none";
+}
+
+
+function showMessage(message) {
+
+    openFeatureModal(
+        "Information",
+        `<p>${message}</p>`
+    );
+}
+
+
+/* Click outside popup */
+
+window.addEventListener(
+    "click",
+    function(event) {
+
+        let modal =
+            document.getElementById(
+                "featureModal"
+            );
+
+
+        if (event.target === modal) {
+
+            closeFeatureModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   STUDY HUB
+===================================================== */
+
+function openNotes() {
+
+    openFeatureModal(
+        "📓 Semester Notes",
+        `
+        <p>
+            Select a subject:
+        </p>
+
+        <div class="modal-list">
+
+            <button onclick="
+                showMessage(
+                    '📘 Data Structures notes are available.'
+                )
+            ">
+                📘 Data Structures
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    '🌐 Web Development notes are available.'
+                )
+            ">
+                🌐 Web Development
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    '🐍 Python notes are available.'
+                )
+            ">
+                🐍 Python
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    '🤖 Artificial Intelligence notes are available.'
+                )
+            ">
+                🤖 Artificial Intelligence
+            </button>
+
+        </div>
+        `
+    );
+}
+
+
+function openPYQ() {
+
+    openFeatureModal(
+        "📄 Previous Year Questions",
+        `
+        <p>
+            Select a subject:
+        </p>
+
+        <div class="modal-list">
+
+            <button onclick="
+                showMessage(
+                    'Data Structures PYQ selected.'
+                )
+            ">
+                📘 Data Structures PYQ
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    'Web Technologies PYQ selected.'
+                )
+            ">
+                🌐 Web Technologies PYQ
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    'Python PYQ selected.'
+                )
+            ">
+                🐍 Python PYQ
+            </button>
+
+
+            <button onclick="
+                showMessage(
+                    'Mathematics PYQ selected.'
+                )
+            ">
+                📐 Mathematics PYQ
+            </button>
+
+        </div>
+        `
+    );
+}
+
+
+function openPlaylists() {
+
+    openFeatureModal(
+        "🎥 Study Playlists",
+        `
+        <p>
+            Useful learning resources:
+        </p>
+
+        <div class="modal-list">
+
+            <a
+                href="https://www.youtube.com/"
+                target="_blank"
+            >
+                ▶️ YouTube
+            </a>
+
+
+            <a
+                href="https://www.freecodecamp.org/"
+                target="_blank"
+            >
+                💻 freeCodeCamp
+            </a>
+
+
+            <a
+                href="https://www.geeksforgeeks.org/"
+                target="_blank"
+            >
+                📚 GeeksforGeeks
+            </a>
+
+        </div>
+        `
+    );
+}
+
+
+function openCourses() {
+
+    openFeatureModal(
+        "🏆 Free Courses",
+        `
+        <p>
+            Useful free learning platforms:
+        </p>
+
+        <div class="modal-list">
+
+            <a
+                href="https://www.coursera.org/"
+                target="_blank"
+            >
+                🎓 Coursera
+            </a>
+
+
+            <a
+                href="https://www.edx.org/"
+                target="_blank"
+            >
+                🎓 edX
+            </a>
+
+
+            <a
+                href="https://www.freecodecamp.org/"
+                target="_blank"
+            >
+                💻 freeCodeCamp
+            </a>
+
+        </div>
+        `
+    );
+}
+
+
+/* =====================================================
+   BUDGET
+===================================================== */
 
 function calculateBudget() {
 
     let income =
-        Number(document.getElementById("income").value);
+        Number(
+            document.getElementById(
+                "income"
+            ).value
+        );
+
 
     let rent =
-        Number(document.getElementById("rent").value);
+        Number(
+            document.getElementById(
+                "rent"
+            ).value
+        );
+
 
     let food =
-        Number(document.getElementById("food").value);
+        Number(
+            document.getElementById(
+                "food"
+            ).value
+        );
+
 
     let travel =
-        Number(document.getElementById("travel").value);
+        Number(
+            document.getElementById(
+                "travel"
+            ).value
+        );
+
 
     let misc =
-        Number(document.getElementById("misc").value);
+        Number(
+            document.getElementById(
+                "misc"
+            ).value
+        );
 
 
-    let totalExpenses =
-        rent + food + travel + misc;
+    if (income <= 0) {
+
+        showMessage(
+            "Please enter a valid monthly income."
+        );
+
+        return;
+    }
+
+
+    let expenses =
+        rent +
+        food +
+        travel +
+        misc;
 
 
     let savings =
-        income - totalExpenses;
+        income - expenses;
 
 
-    document.getElementById("savingResult")
-        .innerText =
+    let result =
+        document.getElementById(
+            "savingResult"
+        );
+
+
+    result.innerText =
         "₹" + savings;
+
+
+    if (savings < 0) {
+
+        result.style.color =
+            "#f87171";
+
+    } else {
+
+        result.style.color =
+            "#4ade80";
+    }
 }
 
 
-/* ==========================================
-   ATTENDANCE CALCULATOR
-========================================== */
+/* =====================================================
+   ATTENDANCE
+===================================================== */
 
 function calculateAttendance() {
 
     let total =
         Number(
-            document.getElementById("totalClasses").value
+            document.getElementById(
+                "totalClasses"
+            ).value
         );
+
 
     let attended =
         Number(
-            document.getElementById("attendedClasses").value
+            document.getElementById(
+                "attendedClasses"
+            ).value
+        );
+
+
+    let result =
+        document.getElementById(
+            "attendanceResult"
+        );
+
+
+    let message =
+        document.getElementById(
+            "attendanceMessage"
         );
 
 
@@ -100,11 +445,11 @@ function calculateAttendance() {
         attended > total
     ) {
 
-        document.getElementById("attendanceResult")
-            .innerText = "Invalid";
+        result.innerText =
+            "Invalid";
 
-        document.getElementById("attendanceMessage")
-            .innerText = "Enter valid values.";
+        message.innerText =
+            "Please enter valid values.";
 
         return;
     }
@@ -114,8 +459,7 @@ function calculateAttendance() {
         (attended / total) * 100;
 
 
-    document.getElementById("attendanceResult")
-        .innerText =
+    result.innerText =
         percentage.toFixed(2) + "%";
 
 
@@ -127,118 +471,172 @@ function calculateAttendance() {
             );
 
 
-        document.getElementById("attendanceMessage")
-            .innerText =
-            "You can miss about " +
+        message.innerText =
+            "✅ You can miss about " +
             canMiss +
             " more class(es).";
 
     } else {
 
-        let required =
+        let needed =
             Math.ceil(
-                (0.75 * total - attended) / 0.25
+                (0.75 * total - attended) /
+                0.25
             );
 
 
-        document.getElementById("attendanceMessage")
-            .innerText =
-            "You need about " +
-            required +
+        message.innerText =
+            "⚠️ You need about " +
+            needed +
             " more class(es) to reach 75%.";
     }
-
 }
 
 
-/* ==========================================
-   CGPA CALCULATOR
-========================================== */
+/* =====================================================
+   CGPA
+===================================================== */
 
 function calculateCGPA() {
 
-    let grade1 =
-        Number(document.getElementById("grade1").value);
+    let grades = [
 
-    let grade2 =
-        Number(document.getElementById("grade2").value);
+        Number(
+            document.getElementById(
+                "grade1"
+            ).value
+        ),
 
-    let grade3 =
-        Number(document.getElementById("grade3").value);
+        Number(
+            document.getElementById(
+                "grade2"
+            ).value
+        ),
 
-    let grade4 =
-        Number(document.getElementById("grade4").value);
+        Number(
+            document.getElementById(
+                "grade3"
+            ).value
+        ),
 
-    let grade5 =
-        Number(document.getElementById("grade5").value);
+        Number(
+            document.getElementById(
+                "grade4"
+            ).value
+        ),
+
+        Number(
+            document.getElementById(
+                "grade5"
+            ).value
+        )
+
+    ];
 
 
-    let total =
-        grade1 +
-        grade2 +
-        grade3 +
-        grade4 +
-        grade5;
+    for (
+        let i = 0;
+        i < grades.length;
+        i++
+    ) {
+
+        if (
+            isNaN(grades[i]) ||
+            grades[i] < 0 ||
+            grades[i] > 10
+        ) {
+
+            showMessage(
+                "Enter grade points between 0 and 10."
+            );
+
+            return;
+        }
+    }
+
+
+    let total = 0;
+
+
+    grades.forEach(function(grade) {
+
+        total += grade;
+
+    });
 
 
     let cgpa =
-        total / 5;
+        total / grades.length;
 
 
-    document.getElementById("cgpaResult")
-        .innerText =
+    document.getElementById(
+        "cgpaResult"
+    ).innerText =
         cgpa.toFixed(2);
 }
 
 
-/* ==========================================
+/* =====================================================
    TODO LIST
-========================================== */
+===================================================== */
 
 let tasks =
     JSON.parse(
-        localStorage.getItem("studentTasks")
+        localStorage.getItem(
+            "studentTasks"
+        )
     ) || [];
 
 
 function displayTasks() {
 
-    let taskList =
-        document.getElementById("taskList");
+    let list =
+        document.getElementById(
+            "taskList"
+        );
 
 
-    taskList.innerHTML = "";
+    list.innerHTML = "";
 
 
-    tasks.forEach(function(task, index) {
+    tasks.forEach(
+        function(task, index) {
 
-        let li =
-            document.createElement("li");
+            let li =
+                document.createElement(
+                    "li"
+                );
 
 
-        li.innerHTML =
+            li.innerHTML = `
 
-            task +
+                <span>
+                    ${task}
+                </span>
 
-            `
                 <button
                     class="delete"
-                    onclick="deleteTask(${index})">
+                    onclick="deleteTask(${index})"
+                >
                     Delete
                 </button>
+
             `;
 
 
-        taskList.appendChild(li);
+            list.appendChild(li);
 
-    });
+        }
+    );
 }
 
 
 function addTask() {
 
     let input =
-        document.getElementById("taskInput");
+        document.getElementById(
+            "taskInput"
+        );
 
 
     let task =
@@ -247,7 +645,9 @@ function addTask() {
 
     if (task === "") {
 
-        alert("Please enter a task.");
+        showMessage(
+            "Please enter a task."
+        );
 
         return;
     }
@@ -287,64 +687,133 @@ function deleteTask(index) {
 displayTasks();
 
 
-/* ==========================================
+/* =====================================================
    POMODORO TIMER
-========================================== */
+===================================================== */
 
 let time =
     25 * 60;
 
+
 let timer = null;
 
+
+/* Display timer */
 
 function updateTimer() {
 
     let minutes =
-        Math.floor(time / 60);
+        Math.floor(
+            time / 60
+        );
+
 
     let seconds =
         time % 60;
 
 
-    document.getElementById("timer")
-        .innerText =
+    document.getElementById(
+        "timer"
+    ).innerText =
 
-        String(minutes).padStart(2, "0")
-        + ":" +
-        String(seconds).padStart(2, "0");
+        String(minutes).padStart(
+            2,
+            "0"
+        )
+
+        +
+
+        ":"
+
+        +
+
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 }
 
+
+/* Increase by 1 minute */
+
+function increaseTime() {
+
+    if (timer !== null) {
+
+        return;
+
+    }
+
+
+    time += 60;
+
+
+    updateTimer();
+}
+
+
+/* Decrease by 1 minute */
+
+function decreaseTime() {
+
+    if (timer !== null) {
+
+        return;
+
+    }
+
+
+    if (time > 60) {
+
+        time -= 60;
+
+    }
+
+
+    updateTimer();
+}
+
+
+/* Start */
 
 function startTimer() {
 
     if (timer !== null) {
+
         return;
+
     }
 
 
     timer =
-        setInterval(function() {
+        setInterval(
+            function() {
 
-            if (time > 0) {
+                if (time > 0) {
 
-                time--;
+                    time--;
 
-                updateTimer();
+                    updateTimer();
 
-            } else {
+                } else {
 
-                clearInterval(timer);
+                    clearInterval(timer);
 
-                timer = null;
+                    timer = null;
 
-                alert(
-                    "Pomodoro completed! 🎉"
-                );
-            }
 
-        }, 1000);
+                    showMessage(
+                        "🎉 Pomodoro completed!"
+                    );
+                }
+
+            },
+            1000
+        );
 }
 
+
+/* Pause */
 
 function pauseTimer() {
 
@@ -354,13 +823,18 @@ function pauseTimer() {
 }
 
 
+/* Reset */
+
 function resetTimer() {
 
     clearInterval(timer);
 
     timer = null;
 
-    time = 25 * 60;
+
+    time =
+        25 * 60;
+
 
     updateTimer();
 }
@@ -369,21 +843,22 @@ function resetTimer() {
 updateTimer();
 
 
-/* ==========================================
+/* =====================================================
    BOOK LIBRARY
-========================================== */
+===================================================== */
 
 function searchBooks() {
 
-    let input =
-        document.getElementById("bookSearch");
-
     let search =
-        input.value.toLowerCase();
+        document.getElementById(
+            "bookSearch"
+        ).value.toLowerCase();
 
 
     let books =
-        document.querySelectorAll(".book-card");
+        document.querySelectorAll(
+            ".book-card"
+        );
 
 
     books.forEach(function(book) {
@@ -394,14 +869,17 @@ function searchBooks() {
                 .toLowerCase();
 
 
-        if (title.includes(search)) {
+        if (
+            title.includes(search)
+        ) {
 
-            book.style.display = "block";
+            book.style.display =
+                "block";
 
         } else {
 
-            book.style.display = "none";
-
+            book.style.display =
+                "none";
         }
 
     });
@@ -410,160 +888,346 @@ function searchBooks() {
 
 function borrowBook(bookName) {
 
-    alert(
-        "You selected: " +
-        bookName +
-        " 📖"
+    openFeatureModal(
+        "📖 Book Details",
+        `
+        <h3>
+            ${bookName}
+        </h3>
+
+        <p>
+            <b>Status:</b> Available
+        </p>
+
+        <p>
+            This book is currently available
+            in the student library.
+        </p>
+
+        <button
+            onclick="reserveBook('${bookName}')"
+        >
+            Reserve Book
+        </button>
+        `
     );
 }
 
 
-/* ==========================================
+function reserveBook(bookName) {
+
+    openFeatureModal(
+        "✅ Reservation",
+        `
+        <p>
+            <b>${bookName}</b>
+            has been reserved successfully.
+        </p>
+        `
+    );
+}
+
+
+/* =====================================================
    EVENTS
-========================================== */
+===================================================== */
 
-function registerEvent(eventName) {
+function registerEvent(
+    eventName,
+    button
+) {
 
-    alert(
-        "You registered for " +
-        eventName +
-        " 🎉"
+    if (
+        button.innerText ===
+        "Registered ✓"
+    ) {
+
+        showMessage(
+            "You are already registered."
+        );
+
+        return;
+    }
+
+
+    button.innerText =
+        "Registered ✓";
+
+
+    button.style.background =
+        "#166534";
+
+
+    showMessage(
+        "✅ You registered for " +
+        eventName
     );
 }
 
 
-/* ==========================================
+/* =====================================================
    TRANSPORT
-========================================== */
+===================================================== */
 
-function showMessage(message) {
+function showTransport(type) {
 
-    alert(message);
+    if (type === "bus") {
+
+        openFeatureModal(
+            "🚌 College Bus",
+            `
+            <p>
+                <b>Morning:</b> 7:40 AM
+            </p>
+
+            <p>
+                <b>Evening:</b> 4:40 PM
+            </p>
+
+            <p>
+                College bus service for students.
+            </p>
+            `
+        );
+
+        return;
+    }
+
+
+    if (type === "shuttle") {
+
+        openFeatureModal(
+            "🚐 Campus Shuttle",
+            `
+            <p>
+                <b>Status:</b> Available
+            </p>
+
+            <p>
+                <b>Frequency:</b> Every 30 minutes
+            </p>
+
+            <p>
+                Available during college hours.
+            </p>
+            `
+        );
+
+        return;
+    }
+
+
+    if (type === "railway") {
+
+        openFeatureModal(
+            "🚆 Railway Station",
+            `
+            <p>
+                Railway station information
+                can be added here.
+            </p>
+            `
+        );
+
+        return;
+    }
+
+
+    if (type === "cab") {
+
+        openFeatureModal(
+            "🚕 Cab / Auto",
+            `
+            <p>
+                Local cab and auto
+                services are available.
+            </p>
+            `
+        );
+    }
 }
 
 
-/* ==========================================
+/* =====================================================
    CAMPUS MAP
-========================================== */
+===================================================== */
 
 function locationInfo(location) {
 
-    let text = "";
+    let information = "";
 
 
     if (location === "Library") {
 
-        text =
-            "📚 Library is located in the Academic Block.";
-
-    }
-
-    else if (location === "Academic Block") {
-
-        text =
-            "🏫 Academic Block contains classrooms and labs.";
-
-    }
-
-    else if (location === "Cafeteria") {
-
-        text =
-            "🍔 Cafeteria is the main student food area.";
-
-    }
-
-    else if (location === "Hostel") {
-
-        text =
-            "🏠 Hostel is located in the residential area.";
-
-    }
-
-    else if (location === "Parking") {
-
-        text =
-            "🅿️ Parking area is available for students.";
+        information =
+            "📚 Library\n\n" +
+            "Located in the Academic Block.";
 
     }
 
 
-    document.getElementById("locationText")
-        .innerText = text;
+    else if (
+        location === "Academic Block"
+    ) {
+
+        information =
+            "🏫 Academic Block\n\n" +
+            "Contains classrooms and labs.";
+
+    }
+
+
+    else if (
+        location === "Cafeteria"
+    ) {
+
+        information =
+            "🍔 Cafeteria\n\n" +
+            "Main student food area.";
+
+    }
+
+
+    else if (
+        location === "Hostel"
+    ) {
+
+        information =
+            "🏠 Hostel\n\n" +
+            "Residential student area.";
+
+    }
+
+
+    else if (
+        location === "Parking"
+    ) {
+
+        information =
+            "🅿️ Parking\n\n" +
+            "Student and staff parking area.";
+    }
+
+
+    document.getElementById(
+        "locationText"
+    ).innerText =
+        information;
 }
 
 
-/* ==========================================
+/* =====================================================
    LOST & FOUND
-========================================== */
+===================================================== */
 
 function reportFound(item) {
 
-    alert(
-        "Thank you! You reported the " +
-        item +
-        " as found. ✅"
+    openFeatureModal(
+        "✅ Item Reported",
+        `
+        <p>
+            Thank you!
+        </p>
+
+        <p>
+            You reported
+            <b>${item}</b>
+            as found.
+        </p>
+        `
     );
 }
 
 
 function contactOwner(item) {
 
-    alert(
-        "Contact details for the " +
-        item +
-        " owner would be shown here."
+    openFeatureModal(
+        "📞 Contact Owner",
+        `
+        <p>
+            Contact request for
+            <b>${item}</b>
+            has been created.
+        </p>
+
+        <p>
+            Sample contact:
+            student@example.com
+        </p>
+        `
     );
 }
 
 
-/* ==========================================
+/* =====================================================
    EMERGENCY
-========================================== */
+===================================================== */
 
 function callNumber(number) {
 
-    alert(
-        "Emergency number: " +
-        number
-    );
+    let confirmation =
+        confirm(
+            "Call emergency number " +
+            number +
+            "?"
+        );
+
+
+    if (confirmation) {
+
+        window.location.href =
+            "tel:" + number;
+    }
 }
 
 
-/* ==========================================
+/* =====================================================
    CHATBOT
-========================================== */
+===================================================== */
 
 function openChat() {
 
-    document.getElementById("chatbot")
-        .classList.add("show");
+    document.getElementById(
+        "chatbot"
+    ).classList.add("show");
 }
 
 
 function closeChat() {
 
-    document.getElementById("chatbot")
-        .classList.remove("show");
+    document.getElementById(
+        "chatbot"
+    ).classList.remove("show");
 }
 
 
 function chatEnter(event) {
 
-    if (event.key === "Enter") {
+    if (
+        event.key === "Enter"
+    ) {
 
         sendMessage();
+
     }
 }
 
 
-function addMessage(text, className) {
+function addMessage(
+    text,
+    className
+) {
 
     let messages =
-        document.getElementById("chatMessages");
+        document.getElementById(
+            "chatMessages"
+        );
 
 
     let div =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     div.className =
@@ -585,7 +1249,9 @@ function addMessage(text, className) {
 function sendMessage() {
 
     let input =
-        document.getElementById("chatInput");
+        document.getElementById(
+            "chatInput"
+        );
 
 
     let question =
@@ -593,7 +1259,9 @@ function sendMessage() {
 
 
     if (question === "") {
+
         return;
+
     }
 
 
@@ -624,190 +1292,221 @@ function sendMessage() {
 
     }
 
-    else if (q.includes("library")) {
+
+    else if (
+        q.includes("library")
+    ) {
 
         answer =
-            "📚 The library is located in the Academic Block.";
+            "📚 The library is in the Academic Block.";
 
     }
 
-    else if (q.includes("attendance")) {
+
+    else if (
+        q.includes("attendance")
+    ) {
 
         answer =
-            "📊 Open Attendance and enter your total and attended classes.";
+            "📊 Open Attendance and enter total and attended classes.";
 
     }
 
-    else if (q.includes("cgpa")) {
+
+    else if (
+        q.includes("cgpa")
+    ) {
 
         answer =
-            "🎯 Open the CGPA Calculator and enter your grade points.";
+            "🎯 Open CGPA Calculator to calculate your CGPA.";
 
     }
 
-    else if (q.includes("exam")) {
+
+    else if (
+        q.includes("exam")
+    ) {
 
         answer =
-            "📖 Use the Study Hub, PYQs and Pomodoro Timer for exam preparation.";
+            "📖 Use Study Hub, PYQs and Pomodoro for exam preparation.";
 
     }
 
-    else if (q.includes("book")) {
+
+    else if (
+        q.includes("book")
+    ) {
 
         answer =
-            "📖 Open Book Library to search available study books.";
+            "📖 Open Book Library to search books.";
 
     }
 
-    else if (q.includes("transport") || q.includes("bus")) {
+
+    else if (
+        q.includes("transport") ||
+        q.includes("bus")
+    ) {
 
         answer =
-            "🚌 Open Transport to see college bus and shuttle information.";
+            "🚌 Open Transport for bus and shuttle information.";
 
     }
 
-    else if (q.includes("lost")) {
+
+    else if (
+        q.includes("lost")
+    ) {
 
         answer =
-            "📢 Open Lost & Found to check reported items.";
+            "📢 Open Lost & Found to check items.";
 
     }
 
-    else if (q.includes("budget")) {
+
+    else if (
+        q.includes("budget")
+    ) {
 
         answer =
-            "💰 Open Budget to calculate your monthly savings.";
+            "💰 Open Budget to calculate monthly savings.";
 
     }
 
-    else if (q.includes("thank")) {
+
+    else if (
+        q.includes("thank")
+    ) {
 
         answer =
             "You're welcome! 😊";
+
     }
 
 
-    setTimeout(function() {
+    setTimeout(
+        function() {
 
-        addMessage(
-            answer,
-            "bot-message"
-        );
+            addMessage(
+                answer,
+                "bot-message"
+            );
 
-    }, 400);
+        },
+        300
+    );
 }
 
+
 /* =====================================================
-   LOGIN & SIGN UP SYSTEM
+   LOGIN / SIGN UP
 ===================================================== */
-
-
-/* ================= SHOW SIGN UP ================= */
 
 function showSignup() {
 
-    const loginBox = document.getElementById("loginBox");
-    const signupBox = document.getElementById("signupBox");
+    document.getElementById(
+        "loginBox"
+    ).classList.add("hidden");
 
-    if (loginBox && signupBox) {
 
-        loginBox.classList.add("hidden");
-        signupBox.classList.remove("hidden");
-
-    }
+    document.getElementById(
+        "signupBox"
+    ).classList.remove("hidden");
 }
 
-
-/* ================= SHOW LOGIN ================= */
 
 function showLogin() {
 
-    const loginBox = document.getElementById("loginBox");
-    const signupBox = document.getElementById("signupBox");
+    document.getElementById(
+        "signupBox"
+    ).classList.add("hidden");
 
-    if (loginBox && signupBox) {
 
-        signupBox.classList.add("hidden");
-        loginBox.classList.remove("hidden");
-
-    }
+    document.getElementById(
+        "loginBox"
+    ).classList.remove("hidden");
 }
 
-
-/* ================= SIGN UP ================= */
 
 function signupUser(event) {
 
     event.preventDefault();
 
-    const name =
-        document.getElementById("signupName").value.trim();
 
-    const email =
-        document.getElementById("signupEmail").value.trim();
-
-    const password =
-        document.getElementById("signupPassword").value;
-
-    const confirmPassword =
-        document.getElementById("signupConfirmPassword").value;
-
-    const message =
-        document.getElementById("signupMessage");
+    let name =
+        document.getElementById(
+            "signupName"
+        ).value.trim();
 
 
-    /* CHECK PASSWORD */
-
-    if (password !== confirmPassword) {
-
-        message.textContent =
-            "❌ Passwords do not match.";
-
-        message.style.color = "#f87171";
-
-        return;
-    }
+    let email =
+        document.getElementById(
+            "signupEmail"
+        ).value.trim();
 
 
-    /* CHECK PASSWORD LENGTH */
-
-    if (password.length < 6) {
-
-        message.textContent =
-            "❌ Password must be at least 6 characters.";
-
-        message.style.color = "#f87171";
-
-        return;
-    }
+    let password =
+        document.getElementById(
+            "signupPassword"
+        ).value;
 
 
-    /* CHECK EXISTING ACCOUNT */
+    let confirmPassword =
+        document.getElementById(
+            "signupConfirmPassword"
+        ).value;
 
-    const existingUser =
-        JSON.parse(
-            localStorage.getItem("studentUser")
+
+    let message =
+        document.getElementById(
+            "signupMessage"
         );
 
 
     if (
-        existingUser &&
-        existingUser.email.toLowerCase() ===
-        email.toLowerCase()
+        password !== confirmPassword
     ) {
 
-        message.textContent =
-            "❌ Account already exists. Please login.";
-
-        message.style.color = "#f87171";
+        message.innerText =
+            "❌ Passwords do not match.";
 
         return;
     }
 
 
-    /* CREATE USER */
+    if (
+        password.length < 6
+    ) {
 
-    const user = {
+        message.innerText =
+            "❌ Password must be at least 6 characters.";
+
+        return;
+    }
+
+
+    let savedUser =
+        JSON.parse(
+            localStorage.getItem(
+                "studentUser"
+            )
+        );
+
+
+    if (
+        savedUser &&
+        savedUser.email.toLowerCase()
+            === email.toLowerCase()
+    ) {
+
+        message.innerText =
+            "❌ Account already exists.";
+
+        return;
+    }
+
+
+    let user = {
 
         name: name,
 
@@ -818,95 +1517,88 @@ function signupUser(event) {
     };
 
 
-    /* SAVE USER */
-
     localStorage.setItem(
         "studentUser",
         JSON.stringify(user)
     );
 
 
-    /* SUCCESS MESSAGE */
-
-    message.textContent =
+    message.innerText =
         "✅ Account created successfully!";
 
-    message.style.color = "#4ade80";
+
+    document.querySelector(
+        "#signupBox form"
+    ).reset();
 
 
-    /* CLEAR SIGN UP FORM */
+    setTimeout(
+        function() {
 
-    document.querySelector("#signupBox form").reset();
+            showLogin();
 
+            document.getElementById(
+                "loginEmail"
+            ).value =
+                email;
 
-    /* MOVE TO LOGIN */
-
-    setTimeout(function () {
-
-        showLogin();
-
-        document.getElementById("loginEmail").value =
-            email;
-
-        document.getElementById("loginMessage").textContent =
-            "Account created! Please login.";
-
-        document.getElementById("loginMessage").style.color =
-            "#4ade80";
-
-    }, 1000);
+        },
+        700
+    );
 }
 
 
-/* ================= LOGIN ================= */
+/* LOGIN */
 
 function loginUser(event) {
 
     event.preventDefault();
 
-    const email =
-        document.getElementById("loginEmail")
-            .value.trim();
 
-    const password =
-        document.getElementById("loginPassword")
-            .value;
-
-    const message =
-        document.getElementById("loginMessage");
+    let email =
+        document.getElementById(
+            "loginEmail"
+        ).value.trim();
 
 
-    /* GET SAVED USER */
+    let password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
 
-    const savedUser =
-        JSON.parse(
-            localStorage.getItem("studentUser")
+
+    let message =
+        document.getElementById(
+            "loginMessage"
         );
 
 
-    /* NO ACCOUNT */
+    let savedUser =
+        JSON.parse(
+            localStorage.getItem(
+                "studentUser"
+            )
+        );
+
 
     if (!savedUser) {
 
-        message.textContent =
-            "❌ No account found. Please Sign Up first.";
-
-        message.style.color = "#f87171";
+        message.innerText =
+            "❌ No account found. Please Sign Up.";
 
         return;
     }
 
 
-    /* CHECK EMAIL & PASSWORD */
-
     if (
         email.toLowerCase() ===
-            savedUser.email.toLowerCase() &&
-        password === savedUser.password
+            savedUser.email.toLowerCase()
+
+        &&
+
+        password ===
+            savedUser.password
     ) {
-
-
-        /* SAVE CURRENT LOGIN FOR THIS SESSION */
 
         sessionStorage.setItem(
             "studentLoggedIn",
@@ -914,249 +1606,214 @@ function loginUser(event) {
         );
 
 
-        /* HIDE AUTH SCREEN */
-
-        const authScreen =
-            document.getElementById("authScreen");
-
-        if (authScreen) {
-
-            authScreen.style.display = "none";
-
-        }
+        document.getElementById(
+            "authScreen"
+        ).style.display =
+            "none";
 
 
-        /* UPDATE PROFILE */
-
-        updateStudentProfile(savedUser);
-
-
-        /* CLEAR LOGIN MESSAGE */
-
-        message.textContent = "";
+        updateStudentProfile(
+            savedUser
+        );
 
     } else {
 
-        message.textContent =
+        message.innerText =
             "❌ Invalid email or password.";
-
-        message.style.color = "#f87171";
-
     }
 }
 
 
-/* ================= UPDATE PROFILE ================= */
+/* PROFILE */
 
 function updateStudentProfile(user) {
 
-    const profileName =
-        document.querySelector(".profile b");
+    let name =
+        document.querySelector(
+            ".profile b"
+        );
 
-    const profileCircle =
-        document.querySelector(".profile-circle");
+
+    let circle =
+        document.querySelector(
+            ".profile-circle"
+        );
 
 
-    if (profileName) {
+    if (name) {
 
-        profileName.textContent =
+        name.innerText =
             user.name;
-
     }
 
 
-    if (profileCircle) {
+    if (circle) {
 
-        profileCircle.textContent =
+        circle.innerText =
             user.name
                 .charAt(0)
                 .toUpperCase();
-
     }
 }
 
 
-/* ================= CHECK LOGIN ================= */
-
-/*
-   IMPORTANT:
-   sessionStorage is used here.
-
-   This means:
-   - Login works normally
-   - Refreshing the page keeps the login
-   - Closing the browser/tab ends the session
-   - Opening the website again asks for Login
-*/
+/* CHECK LOGIN */
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    function() {
 
-        const authScreen =
-            document.getElementById("authScreen");
-
-        const savedUser =
+        let savedUser =
             JSON.parse(
-                localStorage.getItem("studentUser")
+                localStorage.getItem(
+                    "studentUser"
+                )
             );
 
-        const loggedIn =
+
+        let loggedIn =
             sessionStorage.getItem(
                 "studentLoggedIn"
             );
 
 
+        let auth =
+            document.getElementById(
+                "authScreen"
+            );
+
+
         if (
-            loggedIn === "true" &&
-            savedUser
+            savedUser &&
+            loggedIn === "true"
         ) {
 
-            /* USER ALREADY LOGGED IN */
+            auth.style.display =
+                "none";
 
-            if (authScreen) {
 
-                authScreen.style.display = "none";
-
-            }
-
-            updateStudentProfile(savedUser);
+            updateStudentProfile(
+                savedUser
+            );
 
         } else {
 
-            /* SHOW LOGIN */
+            auth.style.display =
+                "flex";
 
-            if (authScreen) {
-
-                authScreen.style.display = "flex";
-
-            }
 
             showLogin();
 
         }
 
+
+        displayReviews();
+
     }
 );
 
 
-/* ================= LOGOUT ================= */
+/* LOGOUT */
 
 function logoutUser() {
-
-    /* REMOVE LOGIN SESSION */
 
     sessionStorage.removeItem(
         "studentLoggedIn"
     );
 
 
-    /* SHOW LOGIN SCREEN */
+    document.getElementById(
+        "authScreen"
+    ).style.display =
+        "flex";
 
-    const authScreen =
-        document.getElementById("authScreen");
-
-    if (authScreen) {
-
-        authScreen.style.display = "flex";
-
-    }
-
-
-    /* SHOW LOGIN BOX */
 
     showLogin();
 
 
-    /* CLEAR LOGIN FORM */
-
-    const email =
-        document.getElementById("loginEmail");
-
-    const password =
-        document.getElementById("loginPassword");
-
-    const message =
-        document.getElementById("loginMessage");
+    document.getElementById(
+        "loginEmail"
+    ).value = "";
 
 
-    if (email) {
-
-        email.value = "";
-
-    }
-
-    if (password) {
-
-        password.value = "";
-
-    }
-
-    if (message) {
-
-        message.textContent = "";
-
-    }
+    document.getElementById(
+        "loginPassword"
+    ).value = "";
 }
 
+
 /* =====================================================
-   REVIEWS & FEEDBACK SYSTEM
+   REVIEWS
 ===================================================== */
 
 let selectedRating = 0;
 
 
-/* ================= SET RATING ================= */
+/* SELECT STAR */
 
 function setRating(rating) {
 
-    selectedRating = rating;
+    selectedRating =
+        rating;
 
-    const stars =
+
+    let stars =
         document.querySelectorAll(
             ".star-rating button"
         );
 
-    stars.forEach(function(star, index) {
 
-        if (index < rating) {
+    stars.forEach(
+        function(star, index) {
 
-            star.classList.add("active");
+            if (
+                index < rating
+            ) {
 
-        } else {
+                star.classList.add(
+                    "active"
+                );
 
-            star.classList.remove("active");
+            } else {
+
+                star.classList.remove(
+                    "active"
+                );
+            }
 
         }
-
-    });
+    );
 }
 
 
-/* ================= SUBMIT REVIEW ================= */
+/* SUBMIT REVIEW */
 
 function submitReview() {
 
-    const name =
-        document.getElementById("reviewName")
-            .value.trim();
-
-    const text =
-        document.getElementById("reviewText")
-            .value.trim();
-
-    const message =
-        document.getElementById("reviewMessage");
+    let name =
+        document.getElementById(
+            "reviewName"
+        ).value.trim();
 
 
-    /* VALIDATION */
+    let text =
+        document.getElementById(
+            "reviewText"
+        ).value.trim();
 
-    if (selectedRating === 0) {
 
-        message.textContent =
+    let message =
+        document.getElementById(
+            "reviewMessage"
+        );
+
+
+    if (
+        selectedRating === 0
+    ) {
+
+        message.innerText =
             "⭐ Please select a rating.";
-
-        message.style.color = "#f87171";
 
         return;
     }
@@ -1164,10 +1821,8 @@ function submitReview() {
 
     if (name === "") {
 
-        message.textContent =
+        message.innerText =
             "Please enter your name.";
-
-        message.style.color = "#f87171";
 
         return;
     }
@@ -1175,26 +1830,22 @@ function submitReview() {
 
     if (text === "") {
 
-        message.textContent =
+        message.innerText =
             "Please write a review.";
-
-        message.style.color = "#f87171";
 
         return;
     }
 
 
-    /* GET OLD REVIEWS */
-
     let reviews =
         JSON.parse(
-            localStorage.getItem("studentReviews")
+            localStorage.getItem(
+                "studentReviews"
+            )
         ) || [];
 
 
-    /* CREATE REVIEW */
-
-    const newReview = {
+    reviews.push({
 
         name: name,
 
@@ -1202,13 +1853,8 @@ function submitReview() {
 
         text: text
 
-    };
+    });
 
-
-    reviews.push(newReview);
-
-
-    /* SAVE */
 
     localStorage.setItem(
         "studentReviews",
@@ -1216,149 +1862,164 @@ function submitReview() {
     );
 
 
-    /* SUCCESS */
-
-    message.textContent =
-        "✅ Thank you for your feedback!";
-
-    message.style.color = "#4ade80";
+    message.innerText =
+        "✅ Review submitted!";
 
 
-    /* CLEAR FORM */
+    document.getElementById(
+        "reviewName"
+    ).value = "";
 
-    document.getElementById("reviewName")
-        .value = "";
 
-    document.getElementById("reviewText")
-        .value = "";
+    document.getElementById(
+        "reviewText"
+    ).value = "";
 
 
     setRating(0);
 
 
-    /* DISPLAY REVIEWS */
-
     displayReviews();
-
 }
 
 
-/* ================= DISPLAY REVIEWS ================= */
+/* DISPLAY REVIEWS */
 
 function displayReviews() {
 
-    const reviews =
-        JSON.parse(
-            localStorage.getItem("studentReviews")
-        ) || [];
+    let list =
+        document.getElementById(
+            "reviewsList"
+        );
 
 
-    const list =
-        document.getElementById("reviewsList");
+    let average =
+        document.getElementById(
+            "averageRating"
+        );
 
-    const average =
-        document.getElementById("averageRating");
 
-
-    if (reviews.length === 0) {
-
-        list.innerHTML = `
-            <div class="empty-reviews">
-                No reviews yet.
-                Be the first to review! 💜
-            </div>
-        `;
-
-        average.textContent = "⭐ 0.0";
+    if (
+        !list ||
+        !average
+    ) {
 
         return;
     }
 
 
-    /* CALCULATE AVERAGE */
-
-    let total = 0;
-
-    reviews.forEach(function(review) {
-
-        total += review.rating;
-
-    });
+    let reviews =
+        JSON.parse(
+            localStorage.getItem(
+                "studentReviews"
+            )
+        ) || [];
 
 
-    const avg =
-        (total / reviews.length).toFixed(1);
+    if (
+        reviews.length === 0
+    ) {
 
+        list.innerHTML = `
 
-    average.textContent =
-        `⭐ ${avg}`;
+            <div class="empty-reviews">
 
-
-    /* DISPLAY */
-
-    list.innerHTML = "";
-
-
-    reviews.forEach(function(review) {
-
-        let stars = "";
-
-        for (
-            let i = 1;
-            i <= 5;
-            i++
-        ) {
-
-            stars +=
-                i <= review.rating
-                    ? "★"
-                    : "☆";
-
-        }
-
-
-        const reviewElement =
-            document.createElement("div");
-
-        reviewElement.className =
-            "review-item";
-
-
-        reviewElement.innerHTML = `
-
-            <div class="review-top">
-
-                <span class="reviewer-name">
-                    ${review.name}
-                </span>
-
-                <span class="review-stars">
-                    ${stars}
-                </span>
+                No reviews yet.
+                Be the first to review! 💜
 
             </div>
-
-            <p>
-                ${review.text}
-            </p>
 
         `;
 
 
-        list.appendChild(reviewElement);
-
-    });
-
-}
+        average.innerText =
+            "⭐ 0.0";
 
 
-/* ================= LOAD REVIEWS ================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        displayReviews();
-
+        return;
     }
-);
+
+
+    let total = 0;
+
+
+    reviews.forEach(
+        function(review) {
+
+            total +=
+                review.rating;
+
+        }
+    );
+
+
+    let avg =
+        total / reviews.length;
+
+
+    average.innerText =
+        "⭐ " +
+        avg.toFixed(1);
+
+
+    list.innerHTML = "";
+
+
+    reviews.forEach(
+        function(review) {
+
+            let stars = "";
+
+
+            for (
+                let i = 1;
+                i <= 5;
+                i++
+            ) {
+
+                if (
+                    i <= review.rating
+                ) {
+
+                    stars += "★";
+
+                } else {
+
+                    stars += "☆";
+
+                }
+            }
+
+
+            let div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "review-item";
+
+
+            div.innerHTML = `
+
+                <strong>
+                    ${review.name}
+                </strong>
+
+                <span>
+                    ${stars}
+                </span>
+
+                <p>
+                    ${review.text}
+                </p>
+
+            `;
+
+
+            list.appendChild(div);
+
+        }
+    );
+}
