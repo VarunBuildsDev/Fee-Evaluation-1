@@ -2,235 +2,373 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Student Survival Kit</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Google Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
+
 </head>
 
 <body>
-    <!-- ================= LOGIN / SIGN UP ================= -->
-
-<div id="authScreen" class="auth-screen">
-
-    <div class="auth-container">
-
-        <!-- LOGO -->
-        <div class="auth-logo">
-            🎓
-        </div>
-
-        <h1>Student Survival Kit</h1>
-
-        <p class="auth-tagline">
-            One Platform For Everything A Student Needs
-        </p>
 
 
-        <!-- ================= LOGIN ================= -->
+    <!-- =====================================================
+         LOGIN / SIGN UP
+    ====================================================== -->
 
-        <div id="loginBox" class="auth-box">
+    <div id="authScreen" class="auth-screen">
 
-            <h2>Welcome Back 👋</h2>
+        <div class="auth-container">
 
-            <p>Login to continue to your dashboard.</p>
+            <div class="auth-logo">
+                🎓
+            </div>
 
-            <form onsubmit="loginUser(event)">
+            <h1>
+                Student Survival Kit
+            </h1>
 
-                <label>Email</label>
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="Enter your email"
-                    required
-                >
-
-                <label>Password</label>
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Enter your password"
-                    required
-                >
-
-                <button type="submit" class="auth-button">
-                    Login
-                </button>
-
-            </form>
-
-            <div id="loginMessage" class="auth-message"></div>
-
-            <p class="auth-switch">
-                Don't have an account?
-                <button type="button" onclick="showSignup()">
-                    Sign Up
-                </button>
+            <p class="auth-tagline">
+                Everything a student needs in one place
             </p>
 
-        </div>
+
+            <!-- LOGIN -->
+
+            <div id="loginBox" class="auth-box">
+
+                <h2>
+                    Welcome Back 👋
+                </h2>
+
+                <p>
+                    Login to continue.
+                </p>
 
 
-        <!-- ================= SIGN UP ================= -->
+                <form onsubmit="loginUser(event)">
 
-        <div id="signupBox" class="auth-box hidden">
+                    <label>
+                        Email
+                    </label>
 
-            <h2>Create Account ✨</h2>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-            <p>Create your student account.</p>
 
-            <form onsubmit="signupUser(event)">
+                    <label>
+                        Password
+                    </label>
 
-                <label>Full Name</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
 
-                <input
-                    type="text"
-                    id="signupName"
-                    placeholder="Enter your name"
-                    required
-                >
 
-                <label>Email</label>
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Login
+                    </button>
 
-                <input
-                    type="email"
-                    id="signupEmail"
-                    placeholder="Enter your email"
-                    required
-                >
+                </form>
 
-                <label>Password</label>
 
-                <input
-                    type="password"
-                    id="signupPassword"
-                    placeholder="Create a password"
-                    required
-                >
+                <div
+                    id="loginMessage"
+                    class="auth-message"
+                ></div>
 
-                <label>Confirm Password</label>
 
-                <input
-                    type="password"
-                    id="signupConfirmPassword"
-                    placeholder="Confirm your password"
-                    required
-                >
+                <p class="auth-switch">
 
-                <button type="submit" class="auth-button">
-                    Create Account
-                </button>
+                    Don't have an account?
 
-            </form>
+                    <button
+                        type="button"
+                        onclick="showSignup()"
+                    >
+                        Sign Up
+                    </button>
 
-            <div id="signupMessage" class="auth-message"></div>
+                </p>
 
-            <p class="auth-switch">
-                Already have an account?
-                <button type="button" onclick="showLogin()">
-                    Login
-                </button>
-            </p>
+            </div>
+
+
+            <!-- SIGN UP -->
+
+            <div
+                id="signupBox"
+                class="auth-box hidden"
+            >
+
+                <h2>
+                    Create Account ✨
+                </h2>
+
+                <p>
+                    Create your student account.
+                </p>
+
+
+                <form onsubmit="signupUser(event)">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        required
+                    >
+
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupConfirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="signupMessage"
+                    class="auth-message"
+                ></div>
+
+
+                <p class="auth-switch">
+
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        onclick="showLogin()"
+                    >
+                        Login
+                    </button>
+
+                </p>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
-    <!-- ================= SIDEBAR ================= -->
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
 
     <aside class="sidebar">
 
         <div class="logo">
+
             🎓
+
             <span>
                 Student<br>
                 Survival Kit
             </span>
+
         </div>
 
-        <button class="nav-btn active" onclick="showPage('home', this)">
+
+        <button
+            class="nav-btn active"
+            onclick="showPage('home', this)"
+        >
             🏠 Home
         </button>
 
-        <button class="nav-btn" onclick="showPage('study', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('study', this)"
+        >
             📚 Study Hub
         </button>
 
-        <button class="nav-btn" onclick="showPage('books', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('books', this)"
+        >
             📖 Book Library
         </button>
 
-        <button class="nav-btn" onclick="showPage('budget', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('budget', this)"
+        >
             💰 Budget
         </button>
 
-        <button class="nav-btn" onclick="showPage('attendance', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('attendance', this)"
+        >
             📊 Attendance
         </button>
 
-        <button class="nav-btn" onclick="showPage('cgpa', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('cgpa', this)"
+        >
             🎯 CGPA
         </button>
 
-        <button class="nav-btn" onclick="showPage('todo', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('todo', this)"
+        >
             ✅ To-Do
         </button>
 
-        <button class="nav-btn" onclick="showPage('events', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('events', this)"
+        >
             📅 Events
         </button>
 
-        <button class="nav-btn" onclick="showPage('transport', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('transport', this)"
+        >
             🚌 Transport
         </button>
 
-        <button class="nav-btn" onclick="showPage('campus', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('campus', this)"
+        >
             📍 Campus Map
         </button>
 
-        <button class="nav-btn" onclick="showPage('lostfound', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('lostfound', this)"
+        >
             📢 Lost & Found
         </button>
 
-        <button class="nav-btn" onclick="showPage('emergency', this)">
+
+        <button
+            class="nav-btn"
+            onclick="showPage('emergency', this)"
+        >
             🚑 Emergency
         </button>
-        <button
-    class="nav-btn"
-    onclick="showPage('reviews', this)"
->
-    ⭐ Reviews
-</button>
 
-<button
-    class="nav-btn logout-btn"
-    onclick="logoutUser()"
->
-    🚪 Logout
-</button>
+
+        <button
+            class="nav-btn"
+            onclick="showPage('reviews', this)"
+        >
+            ⭐ Reviews
+        </button>
+
+
+        <button
+            class="nav-btn logout-btn"
+            onclick="logoutUser()"
+        >
+            🚪 Logout
+        </button>
 
     </aside>
 
 
-    <!-- ================= MAIN ================= -->
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
     <main class="main">
 
 
-        <!-- ================= HOME ================= -->
+        <!-- =================================================
+             HOME
+        ================================================== -->
 
-        <section id="home" class="page active">
+        <section
+            id="home"
+            class="page active"
+        >
 
             <div class="header">
 
@@ -240,10 +378,12 @@
                         WELCOME BACK 👋
                     </p>
 
+
                     <h1>
                         Everything a student
                         <span>needs in one place.</span>
                     </h1>
+
 
                     <p class="description">
                         Study, manage your money, track attendance,
@@ -259,14 +399,23 @@
                         S
                     </div>
 
+
                     <div>
-                        <b>Student</b>
-                        <small>College Student</small>
+
+                        <b>
+                            Student
+                        </b>
+
+                        <small>
+                            College Student
+                        </small>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- HERO -->
@@ -279,21 +428,27 @@
                         STUDENT PRODUCTIVITY PLATFORM
                     </p>
 
+
                     <h2>
                         Make college life
                         <span>easier.</span>
                     </h2>
 
+
                     <p>
-                        Academic tools and useful campus
+                        Academic tools and useful student
                         services in one place.
                     </p>
 
-                    <button onclick="showPageById('study')">
+
+                    <button
+                        onclick="showPageById('study')"
+                    >
                         Start Studying →
                     </button>
 
                 </div>
+
 
                 <div class="hero-icon">
                     🎓
@@ -302,27 +457,34 @@
             </div>
 
 
+
             <!-- QUICK ACTIONS -->
 
             <h2 class="title">
                 Quick Actions
             </h2>
 
+
             <div class="quick-grid">
+
 
                 <div
                     class="quick-card"
                     onclick="showPageById('study')"
                 >
+
                     <div class="icon purple">
                         📚
                     </div>
 
-                    <h3>Study</h3>
+                    <h3>
+                        Study
+                    </h3>
 
                     <p>
                         Study tools
                     </p>
+
                 </div>
 
 
@@ -330,15 +492,19 @@
                     class="quick-card"
                     onclick="showPageById('books')"
                 >
+
                     <div class="icon blue">
                         📖
                     </div>
 
-                    <h3>Books</h3>
+                    <h3>
+                        Books
+                    </h3>
 
                     <p>
                         Find books
                     </p>
+
                 </div>
 
 
@@ -346,15 +512,19 @@
                     class="quick-card"
                     onclick="showPageById('budget')"
                 >
+
                     <div class="icon green">
                         💰
                     </div>
 
-                    <h3>Budget</h3>
+                    <h3>
+                        Budget
+                    </h3>
 
                     <p>
                         Track money
                     </p>
+
                 </div>
 
 
@@ -362,15 +532,19 @@
                     class="quick-card"
                     onclick="showPageById('attendance')"
                 >
+
                     <div class="icon orange">
                         📊
                     </div>
 
-                    <h3>Attendance</h3>
+                    <h3>
+                        Attendance
+                    </h3>
 
                     <p>
                         Check classes
                     </p>
+
                 </div>
 
 
@@ -378,15 +552,19 @@
                     class="quick-card"
                     onclick="showPageById('events')"
                 >
+
                     <div class="icon pink">
                         📅
                     </div>
 
-                    <h3>Events</h3>
+                    <h3>
+                        Events
+                    </h3>
 
                     <p>
                         Campus events
                     </p>
+
                 </div>
 
 
@@ -394,23 +572,29 @@
                     class="quick-card"
                     onclick="openChat()"
                 >
+
                     <div class="icon cyan">
                         🤖
                     </div>
 
-                    <h3>Assistant</h3>
+                    <h3>
+                        Assistant
+                    </h3>
 
                     <p>
                         Ask questions
                     </p>
+
                 </div>
 
             </div>
 
 
+
             <!-- DASHBOARD -->
 
             <div class="dashboard">
+
 
                 <div class="card">
 
@@ -418,28 +602,31 @@
                         📊 Student Progress
                     </h3>
 
+
                     <p>
                         Semester Progress
                     </p>
 
                     <div class="progress">
-                        <div style="width: 70%;"></div>
+                        <div style="width:70%;"></div>
                     </div>
+
 
                     <p>
                         Attendance
                     </p>
 
                     <div class="progress">
-                        <div style="width: 82%;"></div>
+                        <div style="width:82%;"></div>
                     </div>
+
 
                     <p>
                         Assignments
                     </p>
 
                     <div class="progress">
-                        <div style="width: 75%;"></div>
+                        <div style="width:75%;"></div>
                     </div>
 
                 </div>
@@ -451,9 +638,10 @@
                         💡 Student Tip
                     </h3>
 
+
                     <p class="tip">
                         Keep your attendance above 75%,
-                        finish assignments before deadlines
+                        complete assignments before deadlines
                         and revise regularly.
                     </p>
 
@@ -465,9 +653,14 @@
 
 
 
-        <!-- ================= STUDY HUB ================= -->
+        <!-- =================================================
+             STUDY HUB
+        ================================================== -->
 
-        <section id="study" class="page">
+        <section
+            id="study"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -475,9 +668,11 @@
                     LEARN SMARTER
                 </p>
 
+
                 <h1>
                     📚 Study Hub
                 </h1>
+
 
                 <p>
                     Useful resources and study tools.
@@ -488,29 +683,35 @@
 
             <div class="feature-grid">
 
+
+                <!-- NOTES -->
+
                 <div class="feature-card">
 
                     <div class="big-icon">
                         📓
                     </div>
 
+
                     <h3>
                         Semester Notes
                     </h3>
 
+
                     <p>
-                        Organize your study notes
-                        semester-wise.
+                        Organize your study notes semester-wise.
                     </p>
 
-                    <button
-                        onclick="showMessage('Semester Notes section opened.')"
-                    >
+
+                    <button onclick="openNotes()">
                         Open Notes
                     </button>
 
                 </div>
 
+
+
+                <!-- PYQ -->
 
                 <div class="feature-card">
 
@@ -518,23 +719,26 @@
                         📄
                     </div>
 
+
                     <h3>
                         Previous Year Papers
                     </h3>
 
+
                     <p>
-                        Practice previous year
-                        questions.
+                        Practice previous year questions.
                     </p>
 
-                    <button
-                        onclick="showMessage('PYQ section opened.')"
-                    >
+
+                    <button onclick="openPYQ()">
                         View PYQs
                     </button>
 
                 </div>
 
+
+
+                <!-- PLAYLIST -->
 
                 <div class="feature-card">
 
@@ -542,23 +746,26 @@
                         🎥
                     </div>
 
+
                     <h3>
                         Study Playlists
                     </h3>
 
+
                     <p>
-                        Useful educational
-                        video resources.
+                        Useful educational video resources.
                     </p>
 
-                    <button
-                        onclick="showMessage('Study playlist section opened.')"
-                    >
+
+                    <button onclick="openPlaylists()">
                         Explore
                     </button>
 
                 </div>
 
+
+
+                <!-- COURSES -->
 
                 <div class="feature-card">
 
@@ -566,24 +773,25 @@
                         🏆
                     </div>
 
+
                     <h3>
                         Free Courses
                     </h3>
 
+
                     <p>
-                        Find useful learning
-                        courses.
+                        Find useful learning courses.
                     </p>
 
-                    <button
-                        onclick="showMessage('Free courses section opened.')"
-                    >
+
+                    <button onclick="openCourses()">
                         View Courses
                     </button>
 
                 </div>
 
             </div>
+
 
 
             <!-- POMODORO -->
@@ -594,21 +802,49 @@
                     ⏱ Pomodoro Timer
                 </h2>
 
+
                 <div id="timer">
                     25:00
                 </div>
 
-                <button onclick="startTimer()">
-                    Start
-                </button>
 
-                <button onclick="pauseTimer()">
-                    Pause
-                </button>
+                <!-- INCREASE / DECREASE -->
 
-                <button onclick="resetTimer()">
-                    Reset
-                </button>
+                <div class="timer-controls">
+
+                    <button onclick="decreaseTime()">
+                        − 1 Min
+                    </button>
+
+                    <button onclick="increaseTime()">
+                        + 1 Min
+                    </button>
+
+                </div>
+
+
+                <!-- START / PAUSE / RESET -->
+
+                <div class="timer-buttons">
+
+                    <button onclick="startTimer()">
+                        Start
+                    </button>
+
+                    <button onclick="pauseTimer()">
+                        Pause
+                    </button>
+
+                    <button onclick="resetTimer()">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <p class="timer-note">
+                    Change the study time before starting.
+                </p>
 
             </div>
 
@@ -616,9 +852,14 @@
 
 
 
-        <!-- ================= BOOK LIBRARY ================= -->
+        <!-- =================================================
+             BOOK LIBRARY
+        ================================================== -->
 
-        <section id="books" class="page">
+        <section
+            id="books"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -626,9 +867,11 @@
                     STUDENT BOOK LIBRARY
                 </p>
 
+
                 <h1>
                     📖 Book Library
                 </h1>
+
 
                 <p>
                     Search useful books for your studies.
@@ -649,7 +892,11 @@
             </div>
 
 
-            <div class="book-grid" id="bookList">
+            <div
+                class="book-grid"
+                id="bookList"
+            >
+
 
                 <div class="book-card">
 
@@ -657,13 +904,16 @@
                         📘
                     </div>
 
+
                     <h3>
                         Data Structures
                     </h3>
 
+
                     <p>
                         Computer Science
                     </p>
+
 
                     <button
                         onclick="borrowBook('Data Structures')"
@@ -680,13 +930,16 @@
                         📗
                     </div>
 
+
                     <h3>
                         Python Programming
                     </h3>
 
+
                     <p>
                         Programming
                     </p>
+
 
                     <button
                         onclick="borrowBook('Python Programming')"
@@ -703,13 +956,16 @@
                         📕
                     </div>
 
+
                     <h3>
                         Artificial Intelligence
                     </h3>
 
+
                     <p>
                         AI & ML
                     </p>
+
 
                     <button
                         onclick="borrowBook('Artificial Intelligence')"
@@ -726,13 +982,16 @@
                         📙
                     </div>
 
+
                     <h3>
                         Web Development
                     </h3>
 
+
                     <p>
                         Web Technologies
                     </p>
+
 
                     <button
                         onclick="borrowBook('Web Development')"
@@ -748,9 +1007,14 @@
 
 
 
-        <!-- ================= BUDGET ================= -->
+        <!-- =================================================
+             BUDGET
+        ================================================== -->
 
-        <section id="budget" class="page">
+        <section
+            id="budget"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -758,9 +1022,11 @@
                     MANAGE YOUR MONEY
                 </p>
 
+
                 <h1>
                     💰 Budget Calculator
                 </h1>
+
 
                 <p>
                     Calculate your monthly savings.
@@ -770,6 +1036,7 @@
 
 
             <div class="calculator">
+
 
                 <label>
                     Monthly Income
@@ -783,13 +1050,13 @@
 
 
                 <label>
-                    Hostel / pg
+                    Hostel / PG
                 </label>
 
                 <input
                     type="number"
                     id="rent"
-                    placeholder="Enter Hostel / Pg Expense "
+                    placeholder="Enter Hostel / PG Expense"
                 >
 
 
@@ -812,7 +1079,7 @@
                     type="number"
                     id="travel"
                     placeholder="Enter Travel Expense"
-                    >
+                >
 
 
                 <label>
@@ -822,7 +1089,7 @@
                 <input
                     type="number"
                     id="misc"
-                    placeholder="Enter Miscellaneous  Expense""
+                    placeholder="Enter Miscellaneous Expense"
                 >
 
 
@@ -837,6 +1104,7 @@
                         Remaining Savings
                     </p>
 
+
                     <h2 id="savingResult">
                         ₹0
                     </h2>
@@ -849,9 +1117,14 @@
 
 
 
-        <!-- ================= ATTENDANCE ================= -->
+        <!-- =================================================
+             ATTENDANCE
+        ================================================== -->
 
-        <section id="attendance" class="page">
+        <section
+            id="attendance"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -859,9 +1132,11 @@
                     ATTENDANCE TRACKER
                 </p>
 
+
                 <h1>
                     📊 Attendance Calculator
                 </h1>
+
 
                 <p>
                     Check your current attendance.
@@ -871,6 +1146,7 @@
 
 
             <div class="calculator">
+
 
                 <label>
                     Total Classes
@@ -890,7 +1166,7 @@
                 <input
                     type="number"
                     id="attendedClasses"
-                    placeholder="Enter Total Attended Classes"
+                    placeholder="Enter Attended Classes"
                 >
 
 
@@ -905,9 +1181,11 @@
                         Current Attendance
                     </p>
 
+
                     <h2 id="attendanceResult">
                         0%
                     </h2>
+
 
                     <p id="attendanceMessage">
                         Enter your details.
@@ -921,9 +1199,14 @@
 
 
 
-        <!-- ================= CGPA ================= -->
+        <!-- =================================================
+             CGPA
+        ================================================== -->
 
-        <section id="cgpa" class="page">
+        <section
+            id="cgpa"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -931,9 +1214,11 @@
                     ACADEMIC PERFORMANCE
                 </p>
 
+
                 <h1>
                     🎯 CGPA Calculator
                 </h1>
+
 
                 <p>
                     Enter your grade points.
@@ -944,48 +1229,69 @@
 
             <div class="calculator">
 
-                <label>Subject 1</label>
+
+                <label>
+                    Subject 1
+                </label>
 
                 <input
                     type="number"
                     id="grade1"
-                    placeholder="Enter Subject 1 CGPA"
+                    min="0"
+                    max="10"
+                    placeholder="Grade Point"
                 >
 
 
-                <label>Subject 2</label>
+                <label>
+                    Subject 2
+                </label>
 
                 <input
                     type="number"
                     id="grade2"
-                    placeholder="Enter Subject 2 CGPA"
+                    min="0"
+                    max="10"
+                    placeholder="Grade Point"
                 >
 
 
-                <label>Subject 3</label>
+                <label>
+                    Subject 3
+                </label>
 
                 <input
                     type="number"
                     id="grade3"
-                    placeholder="Enter Subject 3 CGPA"
+                    min="0"
+                    max="10"
+                    placeholder="Grade Point"
                 >
 
 
-                <label>Subject 4</label>
+                <label>
+                    Subject 4
+                </label>
 
                 <input
                     type="number"
                     id="grade4"
-                    placeholder="Enter Subject 4 CGPA"
+                    min="0"
+                    max="10"
+                    placeholder="Grade Point"
                 >
 
 
-                <label>Subject 5</label>
+                <label>
+                    Subject 5
+                </label>
 
                 <input
                     type="number"
                     id="grade5"
-                    placeholder="Enter Subject 5 CGPA"
+                    min="0"
+                    max="10"
+                    placeholder="Grade Point"
                 >
 
 
@@ -1000,6 +1306,7 @@
                         Your CGPA
                     </p>
 
+
                     <h2 id="cgpaResult">
                         0.00
                     </h2>
@@ -1012,9 +1319,14 @@
 
 
 
-        <!-- ================= TODO ================= -->
+        <!-- =================================================
+             TODO LIST
+        ================================================== -->
 
-        <section id="todo" class="page">
+        <section
+            id="todo"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1022,9 +1334,11 @@
                     STAY ORGANIZED
                 </p>
 
+
                 <h1>
                     ✅ To-Do List
                 </h1>
+
 
                 <p>
                     Manage assignments and deadlines.
@@ -1043,6 +1357,7 @@
                         placeholder="Enter a task"
                     >
 
+
                     <button onclick="addTask()">
                         Add
                     </button>
@@ -1058,9 +1373,14 @@
 
 
 
-        <!-- ================= EVENTS ================= -->
+        <!-- =================================================
+             EVENTS
+        ================================================== -->
 
-        <section id="events" class="page">
+        <section
+            id="events"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1068,9 +1388,11 @@
                     CAMPUS LIFE
                 </p>
 
+
                 <h1>
                     📅 Events & Clubs
                 </h1>
+
 
                 <p>
                     Discover upcoming college events.
@@ -1081,12 +1403,19 @@
 
             <div class="event-grid">
 
+
                 <div class="event">
 
                     <div class="date">
-                        <b>25</b>
+
+                        <b>
+                            25
+                        </b>
+
                         AUG
+
                     </div>
+
 
                     <div class="event-info">
 
@@ -1094,9 +1423,11 @@
                             Hackathon 2026
                         </h3>
 
+
                         <p>
                             💻 Technology Club
                         </p>
+
 
                         <p>
                             📍 Main Auditorium
@@ -1104,8 +1435,12 @@
 
                     </div>
 
+
                     <button
-                        onclick="registerEvent('Hackathon 2026')"
+                        onclick="registerEvent(
+                            'Hackathon 2026',
+                            this
+                        )"
                     >
                         Register
                     </button>
@@ -1113,12 +1448,19 @@
                 </div>
 
 
+
                 <div class="event">
 
                     <div class="date">
-                        <b>28</b>
+
+                        <b>
+                            28
+                        </b>
+
                         AUG
+
                     </div>
+
 
                     <div class="event-info">
 
@@ -1126,9 +1468,11 @@
                             AI Workshop
                         </h3>
 
+
                         <p>
                             🤖 AI Club
                         </p>
+
 
                         <p>
                             📍 Computer Lab
@@ -1136,8 +1480,12 @@
 
                     </div>
 
+
                     <button
-                        onclick="registerEvent('AI Workshop')"
+                        onclick="registerEvent(
+                            'AI Workshop',
+                            this
+                        )"
                     >
                         Register
                     </button>
@@ -1145,12 +1493,19 @@
                 </div>
 
 
+
                 <div class="event">
 
                     <div class="date">
-                        <b>02</b>
+
+                        <b>
+                            02
+                        </b>
+
                         SEP
+
                     </div>
+
 
                     <div class="event-info">
 
@@ -1158,9 +1513,11 @@
                             Student Fest
                         </h3>
 
+
                         <p>
                             🎉 Student Council
                         </p>
+
 
                         <p>
                             📍 College Ground
@@ -1168,8 +1525,12 @@
 
                     </div>
 
+
                     <button
-                        onclick="registerEvent('Student Fest')"
+                        onclick="registerEvent(
+                            'Student Fest',
+                            this
+                        )"
                     >
                         Register
                     </button>
@@ -1182,9 +1543,14 @@
 
 
 
-        <!-- ================= TRANSPORT ================= -->
+        <!-- =================================================
+             TRANSPORT
+        ================================================== -->
 
-        <section id="transport" class="page">
+        <section
+            id="transport"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1192,9 +1558,11 @@
                     CAMPUS TRANSPORT
                 </p>
 
+
                 <h1>
                     🚌 Transport
                 </h1>
+
 
                 <p>
                     Useful bus and transport information.
@@ -1205,31 +1573,37 @@
 
             <div class="transport-grid">
 
+
                 <div class="transport-card">
 
                     <div class="transport-icon">
                         🚌
                     </div>
 
+
                     <h3>
                         College Bus
                     </h3>
+
 
                     <p>
                         Morning: 7:40 AM
                     </p>
 
+
                     <p>
                         Evening: 4:40 PM
                     </p>
 
+
                     <button
-                        onclick="showMessage('College bus timing information displayed.')"
+                        onclick="showTransport('bus')"
                     >
                         View Details
                     </button>
 
                 </div>
+
 
 
                 <div class="transport-card">
@@ -1238,25 +1612,30 @@
                         🚐
                     </div>
 
+
                     <h3>
                         Campus Shuttle
                     </h3>
+
 
                     <p>
                         Available during college hours.
                     </p>
 
+
                     <p>
-                        Frequency: Every 30 minutes
+                        Every 30 minutes
                     </p>
 
+
                     <button
-                        onclick="showMessage('Campus shuttle information displayed.')"
+                        onclick="showTransport('shuttle')"
                     >
                         View Details
                     </button>
 
                 </div>
+
 
 
                 <div class="transport-card">
@@ -1265,21 +1644,25 @@
                         🚆
                     </div>
 
+
                     <h3>
                         Railway Station
                     </h3>
 
+
                     <p>
-                        Find the nearest railway station.
+                        Find railway station information.
                     </p>
 
+
                     <button
-                        onclick="showMessage('Nearest railway station information can be added here.')"
+                        onclick="showTransport('railway')"
                     >
                         View Details
                     </button>
 
                 </div>
+
 
 
                 <div class="transport-card">
@@ -1288,16 +1671,19 @@
                         🚕
                     </div>
 
+
                     <h3>
                         Cab / Auto
                     </h3>
+
 
                     <p>
                         Useful local transport option.
                     </p>
 
+
                     <button
-                        onclick="showMessage('Cab and auto information opened.')"
+                        onclick="showTransport('cab')"
                     >
                         View Details
                     </button>
@@ -1310,9 +1696,14 @@
 
 
 
-        <!-- ================= CAMPUS MAP ================= -->
+        <!-- =================================================
+             CAMPUS MAP
+        ================================================== -->
 
-        <section id="campus" class="page">
+        <section
+            id="campus"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1320,9 +1711,11 @@
                     CAMPUS NAVIGATION
                 </p>
 
+
                 <h1>
                     📍 Campus Map
                 </h1>
+
 
                 <p>
                     Click a location for information.
@@ -1333,7 +1726,9 @@
 
             <div class="campus">
 
+
                 <div class="map">
+
 
                     <button
                         class="map-place library"
@@ -1383,6 +1778,7 @@
                         Campus Location
                     </h2>
 
+
                     <p id="locationText">
                         Select a location on the map.
                     </p>
@@ -1395,9 +1791,14 @@
 
 
 
-        <!-- ================= LOST & FOUND ================= -->
+        <!-- =================================================
+             LOST & FOUND
+        ================================================== -->
 
-        <section id="lostfound" class="page">
+        <section
+            id="lostfound"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1405,9 +1806,11 @@
                     CAMPUS COMMUNITY
                 </p>
 
+
                 <h1>
                     📢 Lost & Found
                 </h1>
+
 
                 <p>
                     Help students find lost items.
@@ -1418,23 +1821,28 @@
 
             <div class="lost-grid">
 
+
                 <div class="lost-card">
 
                     <div class="big-icon">
                         🪪
                     </div>
 
+
                     <h3>
                         Lost Student ID
                     </h3>
+
 
                     <p>
                         Lost near the library.
                     </p>
 
+
                     <p>
                         Posted by: Student A
                     </p>
+
 
                     <button
                         onclick="reportFound('Student ID')"
@@ -1445,23 +1853,28 @@
                 </div>
 
 
+
                 <div class="lost-card">
 
                     <div class="big-icon">
                         🔑
                     </div>
 
+
                     <h3>
                         Lost Keys
                     </h3>
+
 
                     <p>
                         Lost near cafeteria.
                     </p>
 
+
                     <p>
                         Posted by: Student B
                     </p>
+
 
                     <button
                         onclick="reportFound('Keys')"
@@ -1472,23 +1885,28 @@
                 </div>
 
 
+
                 <div class="lost-card">
 
                     <div class="big-icon">
                         🔌
                     </div>
 
+
                     <h3>
                         Found Charger
                     </h3>
+
 
                     <p>
                         Found in Computer Lab.
                     </p>
 
+
                     <p>
                         Posted by: Student C
                     </p>
+
 
                     <button
                         onclick="contactOwner('Charger')"
@@ -1499,23 +1917,28 @@
                 </div>
 
 
+
                 <div class="lost-card">
 
                     <div class="big-icon">
                         👛
                     </div>
 
+
                     <h3>
                         Found Wallet
                     </h3>
 
+
                     <p>
-                        Found near the main gate.
+                        Found near main gate.
                     </p>
+
 
                     <p>
                         Posted by: Student D
                     </p>
+
 
                     <button
                         onclick="contactOwner('Wallet')"
@@ -1531,9 +1954,14 @@
 
 
 
-        <!-- ================= EMERGENCY ================= -->
+        <!-- =================================================
+             EMERGENCY
+        ================================================== -->
 
-        <section id="emergency" class="page">
+        <section
+            id="emergency"
+            class="page"
+        >
 
             <div class="page-header">
 
@@ -1541,9 +1969,11 @@
                     STAY SAFE
                 </p>
 
+
                 <h1>
                     🚑 Emergency Section
                 </h1>
+
 
                 <p>
                     Important emergency contacts.
@@ -1554,19 +1984,23 @@
 
             <div class="emergency-grid">
 
+
                 <div class="emergency-card">
 
                     <div class="big-icon">
                         🚑
                     </div>
 
+
                     <h3>
                         Ambulance
                     </h3>
 
+
                     <p>
                         Emergency medical service.
                     </p>
+
 
                     <button
                         onclick="callNumber('108')"
@@ -1577,19 +2011,23 @@
                 </div>
 
 
+
                 <div class="emergency-card">
 
                     <div class="big-icon">
                         👮
                     </div>
 
+
                     <h3>
                         Emergency
                     </h3>
 
+
                     <p>
                         National emergency number.
                     </p>
+
 
                     <button
                         onclick="callNumber('112')"
@@ -1600,27 +2038,34 @@
                 </div>
 
 
+
                 <div class="emergency-card">
 
                     <div class="big-icon">
                         🏥
                     </div>
 
+
                     <h3>
                         Medical Room
                     </h3>
+
 
                     <p>
                         College medical assistance.
                     </p>
 
+
                     <button
-                        onclick="showMessage('Please contact your college medical room.')"
+                        onclick="showMessage(
+                            'Please contact your college medical room.'
+                        )"
                     >
                         Contact
                     </button>
 
                 </div>
+
 
 
                 <div class="emergency-card">
@@ -1629,13 +2074,16 @@
                         🛡️
                     </div>
 
+
                     <h3>
                         Security
                     </h3>
 
+
                     <p>
                         Campus security office.
                     </p>
+
 
                     <button
                         onclick="callNumber('112')"
@@ -1649,131 +2097,187 @@
 
         </section>
 
-  
-
-    <!-- ================= REVIEW & FEEDBACK ================= -->
-
-<section id="reviews" class="page">
-
-    <div class="page-header">
-
-        <p class="purple-text">
-            STUDENT FEEDBACK
-        </p>
-
-        <h1>
-            ⭐ Reviews & Feedback
-        </h1>
-
-        <p>
-            Tell us how we can make Student Survival Kit better.
-        </p>
-
-    </div>
 
 
-    <div class="review-container">
+        <!-- =================================================
+             REVIEWS
+        ================================================== -->
 
-        <!-- REVIEW FORM -->
+        <section
+            id="reviews"
+            class="page"
+        >
 
-        <div class="review-form-card">
+            <div class="page-header">
 
-            <h2>Share Your Experience 💜</h2>
-
-            <p>
-                Your feedback helps us improve the platform.
-            </p>
+                <p class="purple-text">
+                    STUDENT FEEDBACK
+                </p>
 
 
-            <!-- STAR RATING -->
+                <h1>
+                    ⭐ Reviews & Feedback
+                </h1>
 
-            <label>Rate your experience</label>
 
-            <div class="star-rating">
-
-                <button type="button" onclick="setRating(1)">★</button>
-                <button type="button" onclick="setRating(2)">★</button>
-                <button type="button" onclick="setRating(3)">★</button>
-                <button type="button" onclick="setRating(4)">★</button>
-                <button type="button" onclick="setRating(5)">★</button>
+                <p>
+                    Tell us how we can improve Student Survival Kit.
+                </p>
 
             </div>
 
 
-            <input
-                type="text"
-                id="reviewName"
-                placeholder="Your name"
-            >
+            <div class="review-container">
 
 
-            <textarea
-                id="reviewText"
-                placeholder="Write your review..."
-                rows="5"
-            ></textarea>
+                <!-- REVIEW FORM -->
 
+                <div class="review-form-card">
 
-            <button
-                class="review-submit"
-                onclick="submitReview()"
-            >
-                Submit Review ⭐
-            </button>
+                    <h2>
+                        Share Your Experience 💜
+                    </h2>
 
-
-            <p
-                id="reviewMessage"
-                class="review-message"
-            ></p>
-
-        </div>
-
-
-        <!-- REVIEWS DISPLAY -->
-
-        <div class="reviews-list-card">
-
-            <div class="reviews-heading">
-
-                <div>
-
-                    <h2>What Students Say 💬</h2>
 
                     <p>
-                        Feedback from our student community
+                        Your feedback helps improve the platform.
                     </p>
 
+
+                    <label>
+                        Rate your experience
+                    </label>
+
+
+                    <div class="star-rating">
+
+                        <button
+                            type="button"
+                            onclick="setRating(1)"
+                        >
+                            ★
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="setRating(2)"
+                        >
+                            ★
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="setRating(3)"
+                        >
+                            ★
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="setRating(4)"
+                        >
+                            ★
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="setRating(5)"
+                        >
+                            ★
+                        </button>
+
+                    </div>
+
+
+                    <input
+                        type="text"
+                        id="reviewName"
+                        placeholder="Your name"
+                    >
+
+
+                    <textarea
+                        id="reviewText"
+                        placeholder="Write your review..."
+                        rows="5"
+                    ></textarea>
+
+
+                    <button
+                        class="review-submit"
+                        onclick="submitReview()"
+                    >
+                        Submit Review ⭐
+                    </button>
+
+
+                    <p
+                        id="reviewMessage"
+                        class="review-message"
+                    ></p>
+
                 </div>
 
-                <div
-                    id="averageRating"
-                    class="average-rating"
-                >
-                    ⭐ 0.0
+
+
+                <!-- REVIEWS LIST -->
+
+                <div class="reviews-list-card">
+
+                    <div class="reviews-heading">
+
+                        <div>
+
+                            <h2>
+                                What Students Say 💬
+                            </h2>
+
+
+                            <p>
+                                Feedback from our student community
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            id="averageRating"
+                            class="average-rating"
+                        >
+                            ⭐ 0.0
+                        </div>
+
+                    </div>
+
+
+                    <div id="reviewsList">
+
+                        <div class="empty-reviews">
+
+                            No reviews yet.
+                            Be the first to review! 💜
+
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
 
+        </section>
 
-            <div id="reviewsList">
-
-                <div class="empty-reviews">
-                    No reviews yet. Be the first to review! 💜
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-</main> 
+    </main>
 
 
 
-    <!-- ================= CHATBOT BUTTON ================= -->
+    <!-- =====================================================
+         CHATBOT BUTTON
+    ====================================================== -->
 
     <button
         class="chat-button"
@@ -1783,7 +2287,10 @@
     </button>
 
 
-    <!-- ================= CHATBOT ================= -->
+
+    <!-- =====================================================
+         CHATBOT
+    ====================================================== -->
 
     <div
         id="chatbot"
@@ -1798,11 +2305,13 @@
                     Student Assistant
                 </b>
 
+
                 <small>
-                    Online
+                    ● Online
                 </small>
 
             </div>
+
 
             <button onclick="closeChat()">
                 ×
@@ -1817,8 +2326,11 @@
         >
 
             <div class="bot-message">
+
                 Hi 👋 Ask me about attendance,
-                CGPA, library, exams or campus.
+                CGPA, books, exams, transport
+                or campus.
+
             </div>
 
         </div>
@@ -1833,7 +2345,10 @@
                 onkeydown="chatEnter(event)"
             >
 
-            <button onclick="sendMessage()">
+
+            <button
+                onclick="sendMessage()"
+            >
                 ➤
             </button>
 
@@ -1841,6 +2356,38 @@
 
     </div>
 
+
+
+    <!-- =====================================================
+         FEATURE POPUP
+    ====================================================== -->
+
+    <div
+        id="featureModal"
+        class="feature-modal"
+    >
+
+        <div class="feature-modal-box">
+
+            <button
+                class="close-modal"
+                onclick="closeFeatureModal()"
+            >
+                ×
+            </button>
+
+
+            <div
+                id="featureModalContent"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
