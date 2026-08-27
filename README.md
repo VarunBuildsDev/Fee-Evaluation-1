@@ -1,2 +1,41 @@
-# Fee-Evaluation-1
-Student Survival Kit 🎓 – A student productivity platform built with HTML, CSS and JavaScript, featuring Study Hub, Book Library, Budget Calculator, Attendance &amp; CGPA Calculator, To-Do List, Events, Transport, Campus Map, Lost &amp; Found, Emergency Support and a basic Student Assistant.
+# 🎓 Student Survival Kit
+
+Student Survival Kit is an all-in-one student productivity platform built using HTML, CSS and JavaScript.
+
+## 🚀 Features
+
+- 📚 Study Hub
+- 📖 Book Library
+- 💰 Budget Calculator
+- 📊 Attendance Calculator
+- 🎯 CGPA Calculator
+- ✅ To-Do List
+- ⏱ Pomodoro Timer
+- 📅 Events & Clubs
+- 🚌 Transport Information
+- 📍 Campus Map
+- 📢 Lost & Found
+- 🚑 Emergency Support
+- 🤖 Student Assistant Chatbot
+- ⭐ Student Reviews & Feedback
+- 🔐 Login & Sign Up
+
+## 🛠 Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- Local Storage
+
+## 🎯 Project Goal
+
+The goal of Student Survival Kit is to make college life easier by providing useful student tools and resources in one place.
+
+## 📂 Project Structure
+
+```text
+Student-Survival-Kit/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
